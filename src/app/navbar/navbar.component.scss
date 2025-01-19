@@ -1,0 +1,90 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.navbar .logo img {
+    height: 65px;
+    transition: height 0.3s ease;
+}
+
+.navbar .menu {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .menu a {
+    text-decoration: none;
+    color: #6a0dad;
+    font-weight: bold;
+    position: relative;
+}
+
+.navbar .menu a:hover {
+    color: #9932cc;
+}
+
+.navbar .menu a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: #9932cc;
+    transition: width 0.3s;
+    width: 0;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.navbar .menu a:hover::after {
+    width: 100%;
+}
+
+.navbar .right-menu {
+    display: flex;
+    gap: 15px;
+}
+
+.navbar .right-menu a {
+    text-decoration: none;
+    color: #6a0dad;
+    font-weight: bold;
+}
+
+.navbar .right-menu a:hover {
+    color: #9932cc;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar .logo img {
+        height: 32px;
+    }
+
+    .navbar .menu {
+        gap: 10px;
+    }
+
+    .navbar .right-menu {
+        gap: 10px;
+    }
+}
