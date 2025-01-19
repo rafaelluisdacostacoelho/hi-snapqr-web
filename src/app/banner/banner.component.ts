@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { PrimaryButtonComponent } from "../primary-button/primary-button.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-banner',
-  imports: [PrimaryButtonComponent],
+  imports: [RouterLink],
   templateUrl: './banner.component.html',
   styleUrl: './banner.component.scss'
 })

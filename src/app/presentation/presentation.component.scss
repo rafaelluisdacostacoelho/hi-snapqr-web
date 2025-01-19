@@ -1,0 +1,46 @@
+h1 {
+  font-size: 3rem;
+  margin: 0;
+  animation: slideIn 1s ease-out;
+  margin-top: 40px;
+  text-align: center;
+  color: #6a0dad;
+}
+
+.advantages-section {
+  margin-left: 300px;
+  margin-right: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.advantages-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.advantages-section .text {
+  max-width: 600px;
+}
+
+.advantages-section h3 {
+  color: #6a0dad;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .advantages-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .advantages-section img {
+    margin-bottom: 20px;
+  }
+}
