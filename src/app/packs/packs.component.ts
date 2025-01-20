@@ -11,11 +11,32 @@ import { environment } from '../../environments/environment';
   styleUrl: './packs.component.scss'
 })
 export class PacksComponent implements OnInit {
-  public packages = [
-    { id: 1, name: 'Pacote 1', quantity: 5, price: 5, discount: 0 },
-    { id: 2, name: 'Pacote 2', quantity: 10, price: 9, discount: 0.1 },
-    { id: 3, name: 'Pacote 3', quantity: 20, price: 17, discount: 0.2 },
-    { id: 4, name: 'Pacote 4', quantity: 50, price: 40, discount: 0.3 }];
+  packages = [
+    {
+      name: 'Pacote Básico',
+      description: 'Ideal para pequenos negócios.',
+      quantity: 50,
+      price: 49.99
+    },
+    {
+      name: 'Pacote Intermediário',
+      description: 'Perfeito para negócios em crescimento.',
+      quantity: 200,
+      price: 149.99
+    },
+    {
+      name: 'Pacote Avançado',
+      description: 'A melhor solução para grandes empresas.',
+      quantity: 500,
+      price: 299.99
+    },
+    {
+      name: 'Pacote Premium',
+      description: 'Solução completa para demandas ilimitadas.',
+      quantity: 1000,
+      price: 499.99
+    }
+  ];
 
   constructor(private http: HttpClient) { }
 

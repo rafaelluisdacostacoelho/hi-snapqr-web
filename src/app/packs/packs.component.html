@@ -1,13 +1,9 @@
-<div class="container">
-    <div class="card" *ngFor="let package of packages">
-        <div class="card-header">
-            <h3>{{ package.name }}</h3>
-        </div>
-        <div class="card-body">
-            <p>Quantidade: {{ package.quantity }}</p>
-            <p>Preço: R$ {{ package.price }}</p>
-            <p>Desconto: {{ package.discount * 100 }}%</p>
-            <button class="btn" (click)="initiatePayment(package.id)">Comprar</button>
-        </div>
+<div class="packages-container">
+    <div class="package" *ngFor="let package of packages">
+        <h3>{{ package.name }}</h3>
+        <p class="description">{{ package.description }}</p>
+        <p class="quantity">Quantidade: {{ package.quantity }}</p>
+        <p class="price">Preço: {{ package.price | currency:'BRL' }}</p>
+        <button>Comprar</button>
     </div>
 </div>
