@@ -8,83 +8,86 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    animation: fadeIn 1s ease-in-out;
 }
 
-.navbar .logo img {
+.logo img {
     height: 65px;
     transition: height 0.3s ease;
 }
 
-.navbar .menu {
+.menu {
     display: flex;
     gap: 20px;
+    flex-grow: 1;
+    /* Garante que o menu principal ocupe o espaço central */
+    justify-content: center;
 }
 
-.navbar .menu a {
+.menu a {
     text-decoration: none;
     color: #6a0dad;
     font-weight: bold;
     position: relative;
 }
 
-.navbar .menu a:hover {
+.menu a:hover {
     color: #9932cc;
 }
 
-.navbar .menu a::after {
-    content: '';
-    display: block;
-    height: 2px;
-    background: #9932cc;
-    transition: width 0.3s;
-    width: 0;
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-}
-
-.navbar .menu a:hover::after {
-    width: 100%;
-}
-
-.navbar .right-menu {
+.right-menu {
     display: flex;
-    gap: 15px;
+    align-items: center;
+    gap: 20px;
+    /* Garante que o menu principal ocupe o espaço central */
+    justify-content: center;
 }
 
-.navbar .right-menu a {
+.right-menu a {
     text-decoration: none;
     color: #6a0dad;
     font-weight: bold;
 }
 
-.navbar .right-menu a:hover {
+.right-menu a:hover {
     color: #9932cc;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 @media (max-width: 768px) {
-    .navbar .logo img {
-        height: 32px;
+
+    .menu,
+    .right-menu {
+        display: none;
+        flex-direction: column;
+        background-color: white;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1001;
+        text-align: left;
+        padding: 0;
     }
 
-    .navbar .menu {
-        gap: 10px;
+    .menu.active,
+    .right-menu.active {
+        display: flex;
     }
 
-    .navbar .right-menu {
-        gap: 10px;
+    .menu a,
+    .right-menu a {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .hamburger {
+        display: block;
     }
 }

@@ -38,9 +38,16 @@ h1 {
   .advantages-section {
     flex-direction: column;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .advantages-section img {
+    order: 2;
     margin-bottom: 20px;
+  }
+
+  .advantages-section .text {
+    order: 1;
   }
 }

@@ -7,6 +7,8 @@ import { HelpComponent } from './help/help.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { ContactComponent } from './contact/contact.component';
 import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
+import { RecoveryPasswordComponent } from './recovery-password/recovery-password.component';
+import { RegisterComponent } from './register/register.component';
 
 export const routes: Routes = [{
     path: "qr-code-generator", component: QrCodeGeneratorComponent
@@ -22,6 +24,10 @@ export const routes: Routes = [{
     path: "terms-of-service", component: TermsOfServiceComponent
 }, {
     path: "contact", component: ContactComponent
+}, {
+    path: "recovery-password", component: RecoveryPasswordComponent
+}, {
+    path: "register", component: RegisterComponent
 }, {
     path: "**", component: PresentationComponent
 }];
