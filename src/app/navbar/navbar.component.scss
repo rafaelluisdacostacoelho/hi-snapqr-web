@@ -19,7 +19,6 @@
     display: flex;
     gap: 20px;
     flex-grow: 1;
-    /* Garante que o menu principal ocupe o espaço central */
     justify-content: center;
 }
 
@@ -38,7 +37,6 @@
     display: flex;
     align-items: center;
     gap: 20px;
-    /* Garante que o menu principal ocupe o espaço central */
     justify-content: center;
 }
 
@@ -62,11 +60,12 @@
 
     .menu,
     .right-menu {
+        gap: 0px;
         display: none;
         flex-direction: column;
         background-color: white;
         position: absolute;
-        top: 60px;
+        top: 89px;
         left: 0;
         width: 100%;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -75,19 +74,35 @@
         padding: 0;
     }
 
-    .menu.active,
+    .menu.active {
+        display: flex;
+        flex: 1;
+    }
+
     .right-menu.active {
         display: flex;
+        top: 284px;
+        flex-grow: 1;
+        justify-content: center;
     }
 
     .menu a,
     .right-menu a {
         padding: 15px;
         text-align: center;
-        border-bottom: 1px solid #f0f0f0;
+        border-bottom: 1px solid #e2e2e2;
+    }
+
+    .right-menu a {
+        z-index: 10000;
     }
 
     .hamburger {
         display: block;
+    }
+
+    .sign-in-link {
+        border-top: 1px solid #e2e2e2;
+        width: 100%;
     }
 }

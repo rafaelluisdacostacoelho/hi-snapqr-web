@@ -2,14 +2,14 @@
     <div class="logo">
         <img src="assets/images/qrcode.png" alt="Logo">
     </div>
-    <div class="menu" [ngClass]="{'active': isMenuOpen}">
-        <a routerLink="presentation">Apresentação</a>
+    <div class="menu" [ngClass]="{'active': isMenuOpen}" (click)="toggleMenu()">
+        <a routerLink="presentation">Início</a>
         <a routerLink="qr-code-generator">Serviços</a>
         <a routerLink="packs">Pacotes</a>
         <a routerLink="help">Ajuda</a>
     </div>
-    <div class="right-menu" [ngClass]="{'active': isMenuOpen}">
-        <a routerLink="sign-in">Acessar</a>
+    <div class="right-menu" [ngClass]="{'active': isMenuOpen}" (click)="toggleMenu()">
+        <a routerLink="sign-in" class="sign-in-link">Entrar</a>
     </div>
     <div class="hamburger" (click)="toggleMenu()">
         &#9776;
