@@ -1,0 +1,32 @@
+$icons-solid-path: "../../assets/icons/solids/";
+
+@mixin icon($name) {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  mask: url("#{$icons-solid-path}#{$name}.svg") no-repeat center;
+  -webkit-mask: url("#{$icons-solid-path}#{$name}.svg") no-repeat center;
+  background-color: currentColor;
+}
+
+// Exemplo de uso com classes específicas
+.fa-solid {
+  &.circle-user {
+    @include icon('circle-user');
+  }
+  &.image {
+    @include icon('image');
+  }
+  &.user {
+    @include icon('user');
+  }
+  &.circle-user {
+    @include icon('circle-user');
+  }
+  &.bars {
+    @include icon('bars');
+  }
+  &.barcode {
+    @include icon('barcode');
+  }
+}
