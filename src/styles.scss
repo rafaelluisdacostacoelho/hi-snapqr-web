@@ -1,4 +1,5 @@
 @use "./assets/styles/icons";
+@use "./assets/styles/animations";
 
 body {
     margin: 0;
@@ -28,6 +29,16 @@ label {
     font-weight: bold;
 }
 
+h1 {
+    font-size: 3rem;
+    margin: 0;
+    animation: slideIn 1s ease-out;
+    margin-top: 40px;
+    text-align: center;
+    color: #6a0dad;
+    animation: slideIn 1s ease-out;
+}
+
 input {
     width: 100%;
     padding: 10px;
@@ -43,16 +54,15 @@ input:active {
 }
 
 .form-wrapper {
-    max-width: 400px;
-    margin: 40px auto;
+    margin-top: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
     padding: 20px;
     background: #fff;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     animation: fadeIn 1s ease-in-out;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .form-wrapper h2 {
@@ -119,33 +129,16 @@ input:active {
     text-align: center;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
 @media (max-width: 768px) {
     .form-wrapper {
-        margin-left: 20px;
-        margin-right: 20px;
+        margin: 20px;
+    }
+
+    form {
+        padding: 0px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
     }
 }

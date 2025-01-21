@@ -6,3 +6,9 @@
     border: 1px solid #ddd;
     border-radius: 10px;
 }
+
+@media (max-width: 768px) {
+    .help-section {
+        margin: 20px;
+    }
+}

@@ -3,7 +3,7 @@
     padding: 20px 40px;
     text-align: center;
     color: #6a0dad;
-    font-size: 0.9rem;
+    font-size: 1rem;
     border-top: 1px solid #e0e0e0;
 }
 
@@ -16,4 +16,12 @@
 
 .footer a:hover {
     text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .footer > p {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
 }

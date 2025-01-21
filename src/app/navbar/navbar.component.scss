@@ -52,8 +52,6 @@
 
 .menu-mobile {
     display: none;
-    font-size: 1.5rem;
-    cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -99,8 +97,39 @@
     }
 
     .menu-mobile {
-        display: block;
-        color: #6a0dad;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 50%;
+        background-color: #6a0dad;
+        color: #fff;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+
+        &:focus,
+        &:active {
+            outline: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        &:hover {
+            color: #ffffff;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        &:active {
+            background-color: #6a0dad;
+            transform: scale(0.95);
+        }
+
+        i {
+            pointer-events: none;
+        }
     }
 
     .sign-in-link {

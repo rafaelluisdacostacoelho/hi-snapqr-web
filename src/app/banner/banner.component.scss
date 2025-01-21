@@ -11,12 +11,6 @@
     padding: 0;
 }
 
-.banner h1 {
-    font-size: 3rem;
-    margin: 0;
-    animation: slideIn 1s ease-out;
-}
-
 .banner button {
     margin-top: 20px;
     padding: 10px 20px;
@@ -38,8 +32,13 @@
     background: #e0abff;
 }
 
+h1 {
+    color: #ffffff;
+}
+
 @media (max-width: 768px) {
-    .banner h1 {
-        font-size: 2rem;
+    .banner {
+        padding: 20px;
+        padding: 20px;
     }
 }
