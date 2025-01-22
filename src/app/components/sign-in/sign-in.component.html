@@ -7,9 +7,14 @@
         <label for="password">Senha</label>
         <input type="password" id="password" name="password" placeholder="Insira sua senha" required>
 
+        <div *ngIf="errorMessage" class="alert alert-danger">
+            {{ errorMessage }}
+        </div>
+
         <p class="text-center">
             <a routerLink="../recovery-password" class="form-link">Esqueci minha senha</a>
         </p>
+
         <p class="text-center">
             <a routerLink="../register" class="form-link">Criar conta</a>
         </p>

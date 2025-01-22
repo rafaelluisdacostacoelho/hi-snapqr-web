@@ -10,6 +10,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { TermsOfServiceComponent } from './components/terms-of-service/terms-of-service.component';
 import { RecoveryPasswordComponent } from './components/recovery-password/recovery-password.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AuthGuard } from './guards/auth.guard';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 export const routes: Routes = [{
     path: "qr-code-generator", component: QrCodeGeneratorComponent
@@ -29,6 +31,8 @@ export const routes: Routes = [{
     path: "recovery-password", component: RecoveryPasswordComponent
 }, {
     path: "register", component: RegisterComponent
+}, {
+    path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]
 }, {
     path: "**", component: PresentationComponent
 }];
