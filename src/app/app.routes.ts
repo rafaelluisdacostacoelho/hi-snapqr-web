@@ -1,14 +1,15 @@
 import { Routes } from '@angular/router';
-import { PresentationComponent } from './presentation/presentation.component';
-import { QrCodeGeneratorComponent } from './qr-code-generator/qr-code-generator.component';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { PacksComponent } from './packs/packs.component';
-import { HelpComponent } from './help/help.component';
-import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
-import { ContactComponent } from './contact/contact.component';
-import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
-import { RecoveryPasswordComponent } from './recovery-password/recovery-password.component';
-import { RegisterComponent } from './register/register.component';
+
+import { PresentationComponent } from './components/presentation/presentation.component';
+import { QrCodeGeneratorComponent } from './components/qr-code-generator/qr-code-generator.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { PacksComponent } from './components/packs/packs.component';
+import { HelpComponent } from './components/help/help.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { TermsOfServiceComponent } from './components/terms-of-service/terms-of-service.component';
+import { RecoveryPasswordComponent } from './components/recovery-password/recovery-password.component';
+import { RegisterComponent } from './components/register/register.component';
 
 export const routes: Routes = [{
     path: "qr-code-generator", component: QrCodeGeneratorComponent
