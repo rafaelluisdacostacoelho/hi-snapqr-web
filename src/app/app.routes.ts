@@ -12,6 +12,8 @@ import { RecoveryPasswordComponent } from './components/recovery-password/recove
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AccountActivationComponent } from './components/account-activation/account-activation.component';
+import { AccountActivatedComponent } from './components/account-activated/account-activated.component';
 
 export const routes: Routes = [{
     path: "qr-code-generator", component: QrCodeGeneratorComponent
@@ -32,7 +34,11 @@ export const routes: Routes = [{
 }, {
     path: "register", component: RegisterComponent
 }, {
-    path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]
+    path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard],
+}, {
+    path: 'account-activation', component: AccountActivationComponent
+}, {
+    path: 'account-activated', component: AccountActivatedComponent
 }, {
     path: "**", component: PresentationComponent
 }];

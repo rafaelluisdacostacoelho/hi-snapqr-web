@@ -22,9 +22,8 @@ export class SignInComponent {
   onSubmit(form: NgForm): void {
     if (form.invalid) return;
 
-    this.authService.login(this.email, this.password).subscribe(
+    this.authService.signIn(this.email, this.password).subscribe(
       (response) => {
-        this.authService.saveToken(response.token);
         this.router.navigate(['/dashboard']);  // Redireciona para o painel de controle
       },
       (error) => {

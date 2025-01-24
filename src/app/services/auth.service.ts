@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
@@ -18,12 +18,26 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  // Método para realizar login
-  login(email: string, password: string): Observable<AuthResponse> {
+  register(name: string, email: string, password: string): Observable<AuthResponse> {
+    const body = { name, email, password };
+    return this.http
+      .post<AuthResponse>(`${environment.url}/auths/register`, body)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // Método para realizar signIn
+  signIn(email: string, password: string): Observable<AuthResponse> {
     const body = { email, password };
-    return this.http.post<AuthResponse>(`${environment.url}/api/auth/sigin`, body).pipe(
-      catchError(this.handleError)
-    );
+    return this.http
+      .post<AuthResponse>(`${environment.url}/api/auths/sigin`, body)
+      .pipe(
+        tap((response) => {
+          this.saveToken(response.token);
+        }),
+        catchError(this.handleError)
+      );
   }
 
   // Método para salvar o token no localStorage
@@ -56,6 +70,7 @@ export class AuthService {
 
   // Função para tratamento de erros
   private handleError(error: any): Observable<never> {
+    debugger;
     console.error('Erro no AuthService:', error);
     throw error;  // Ou um tratamento personalizado de erros
   }
