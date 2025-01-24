@@ -1,0 +1,17 @@
+<nav class="navbar">
+    <div class="logo">
+        <img src="assets/images/qrcode.png" alt="Logo">
+    </div>
+    <div class="menu" [ngClass]="{'active': isMenuOpen}" (click)="toggleMenu()">
+        <a routerLink="home">Início</a>
+        <a routerLink="qr-code-generator">Serviços</a>
+        <a routerLink="packs">Pacotes</a>
+        <a routerLink="help">Ajuda</a>
+    </div>
+    <div class="right-menu" [ngClass]="{'active': isMenuOpen}" (click)="toggleMenu()">
+        <a routerLink="sign-in" class="sign-in-link">Entrar</a>
+    </div>
+    <button class="menu-mobile" (click)="toggleMenu()">
+        <i class="fa-solid bars"></i>
+    </button>
+</nav>

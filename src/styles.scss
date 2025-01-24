@@ -141,4 +141,20 @@ input:active {
     h1 {
         font-size: 1.5rem;
     }
+
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        transform: translateX(-100%);
+    }
+
+    .sidebar.expanded {
+        transform: translateX(0);
+    }
 }
