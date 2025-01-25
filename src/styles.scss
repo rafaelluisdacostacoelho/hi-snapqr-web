@@ -1,26 +1,10 @@
-@use "./assets/styles/icons";
-@use "./assets/styles/animations";
+@use './assets/styles/variables';
+@use './assets/styles/mixins';
+@use './assets/styles/icons';
+@use './assets/styles/buttons';
+@use './assets/styles/animations';
+@use './assets/styles/typography';
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    color: white;
-    background: #6a0dad;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-button:hover {
-    background: #9932cc;
-}
 
 label {
     color: #6a0dad !important;

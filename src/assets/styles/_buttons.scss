@@ -1,0 +1,64 @@
+@use 'sass:color';
+
+@use './variables' as vars;
+@use './mixins' as mix;
+
+.button {
+    background-color: vars.$primary-color;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    @include mix.transition();
+
+    &:hover {
+        background-color: vars.$primary-color-light;
+        transform: scale(1.05);
+    }
+
+    &:active {
+        background-color: color.scale(vars.$primary-color, $lightness: 10%);
+        transform: scale(0.95);
+    }
+
+    &:focus {
+        outline: 2px solid color.scale(vars.$primary-color, $lightness: 10%);
+        outline-offset: 2px;
+    }
+
+    &:disabled {
+        background-color: color.scale(vars.$primary-color, $lightness: 30%);
+        color: #ccc;
+        cursor: not-allowed;
+        transform: none;
+    }
+}
+
+.link {
+    color: vars.$primary-color;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    @include mix.transition();
+
+    &:hover {
+        color: vars.$primary-hover;
+        text-decoration: underline;
+    }
+
+    &:active {
+        color: color.scale(vars.$primary-color, $lightness: -10%);
+        transform: scale(0.98);
+    }
+
+    &:focus {
+        outline: 2px solid vars.$primary-hover;
+        outline-offset: 2px;
+    }
+
+    &:visited {
+        color: color.scale(vars.$primary-color, $lightness: -15%);
+    }
+}

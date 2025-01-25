@@ -1,0 +1,15 @@
+@mixin responsive-font($min-size, $max-size) {
+    font-size: $min-size;
+
+    @media (min-width: 768px) {
+        font-size: calc(#{$min-size} + (#{ $max-size - $min-size } * ((100vw - 768px) / (1920 - 768))));
+    }
+
+    @media (min-width: 1920px) {
+        font-size: $max-size;
+    }
+}
+
+@mixin transition($property: all, $duration: 0.3s, $timing-function: ease) {
+    transition: $property $duration $timing-function;
+}
