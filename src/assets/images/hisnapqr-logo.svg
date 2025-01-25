@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="228.55354mm"
+   height="60.28828mm"
+   viewBox="0 0 228.55354 60.28828"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1"
+     transform="translate(-11.960968,-20.148665)">
+    <g
+       id="g29"
+       transform="translate(11.994782,11.190162)">
+      <rect
+         style="fill:#ff00ff;stroke-width:0.212288"
+         id="rect16"
+         width="52.152725"
+         height="52.152725"
+         x="4.0341349"
+         y="13.026431"
+         rx="1.6046993" />
+      <path
+         id="rect15"
+         style="fill:#00ff00;stroke:#f9f9f9;stroke-width:0.112;stroke-dasharray:none"
+         d="m 5.6387059,9.0145011 c -3.1115117,0 -5.61651943,2.5050069 -5.61651943,5.6165189 v 48.943237 c 0,3.111512 2.50500773,5.61652 5.61651943,5.61652 H 54.582361 c 3.111512,0 5.616102,-2.505008 5.616102,-5.61652 V 14.63102 c 0,-3.111512 -2.50459,-5.6165189 -5.616102,-5.6165189 z m 0,4.0119169 H 54.582361 c 0.889003,0 1.604603,0.715598 1.604603,1.604602 v 48.943237 c 0,0.889004 -0.7156,1.60502 -1.604603,1.60502 H 5.6387059 c -0.8890033,0 -1.6046013,-0.716016 -1.6046013,-1.60502 V 14.63102 c 0,-0.889004 0.715598,-1.604602 1.6046013,-1.604602 z m 2.4073156,4.011918 V 37.097097 H 28.104782 V 17.038336 Z m 24.0702635,0 V 37.097097 H 52.175047 V 17.038336 Z M 12.057525,21.04984 H 24.092864 V 33.085178 H 12.057525 Z m 24.070677,0 H 48.16354 V 33.085178 H 36.128202 Z m -20.058759,4.011917 v 4.011503 h 4.011503 v -4.011503 z m 24.070264,0 v 4.011503 h 4.011917 V 25.061757 Z M 8.0460215,41.108597 V 61.167361 H 28.104782 V 41.108597 Z m 24.0702635,0 v 20.058764 h 4.011917 v -8.023424 h 4.948144 3.075278 v -12.03534 h -4.011917 v 8.023423 h -4.011505 v -8.023423 z m 16.047255,0 v 4.011916 h 4.011507 v -4.011916 z m -36.106015,4.011916 h 12.035339 v 12.03534 H 12.057525 Z m 4.011918,4.011507 v 4.011917 h 4.011503 V 49.13202 Z m 32.094097,0 v 12.035341 h 4.011507 V 49.13202 Z m -8.023833,8.023833 v 4.011508 h 4.011917 v -4.011508 z" />
+      <text
+         xml:space="preserve"
+         style="font-size:44.3553px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:1;fill:#ff00ff;stroke:#f9f9f9;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:stroke fill markers"
+         x="71.680588"
+         y="52.29174"
+         id="text29"><tspan
+           id="tspan29"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:44.3553px;font-family:Gabriola;-inkscape-font-specification:Gabriola;stroke:#f9f9f9;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:stroke fill markers"
+           x="71.680588"
+           y="52.29174">Hi SnapQR</tspan></text>
+    </g>
+  </g>
+</svg>

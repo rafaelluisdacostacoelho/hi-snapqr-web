@@ -13,5 +13,22 @@ export class NavbarComponent {
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+    const menuOverlay = document.getElementById('menuOverlay');
+    const menuBtn = document.getElementById('menuBtn');
+    if (this.isMenuOpen) {
+      menuOverlay!.style.display = 'flex'; // Exibe o menu
+      menuBtn!.classList.add('open');
+    } else {
+      menuOverlay!.style.display = 'none'; // Esconde o menu
+      menuBtn!.classList.remove('open');
+    }
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
+    const menuOverlay = document.getElementById('menuOverlay');
+    const menuBtn = document.getElementById('menuBtn');
+    menuOverlay!.style.display = 'none'; // Esconde o menu
+    menuBtn!.classList.remove('open');
   }
 }

@@ -1,17 +1,42 @@
-<nav class="navbar">
+<!-- Menu Desktop -->
+<div class="desktop-menu">
     <div class="logo">
-        <img src="assets/images/qrcode.png" alt="Logo">
+        <img src="assets/images/hisnapqr-logo.svg" alt="Logo">
     </div>
-    <div class="menu" [ngClass]="{'active': isMenuOpen}" (click)="toggleMenu()">
-        <a routerLink="home">Início</a>
-        <a routerLink="qr-code-generator">Serviços</a>
-        <a routerLink="packs">Pacotes</a>
-        <a routerLink="help">Ajuda</a>
+    <div class="main-menu">
+        <ul>
+            <li><a routerLink="home">Início</a></li>
+            <li><a routerLink="qr-code-generator">Criador de QR Code</a></li>
+            <li><a routerLink="packs">Preços</a></li>
+            <li><a routerLink="help">Ajuda</a></li>
+        </ul>
     </div>
-    <div class="right-menu" [ngClass]="{'active': isMenuOpen}" (click)="toggleMenu()">
-        <a routerLink="sign-in" class="sign-in-link">Entrar</a>
+    <div class="sign-in-btn">
+        <button routerLink="sign-in">Entrar</button>
     </div>
-    <button class="menu-mobile" (click)="toggleMenu()">
+</div>
+
+<!-- Menu Mobile -->
+<div class="mobile-menu">
+    <!-- Botão de menu (Hamburger) -->
+    <button class="menu-btn" id="menuBtn" (click)="toggleMenu()">
         <i class="fa-solid bars"></i>
     </button>
-</nav>
+
+    <!-- Menu expandido -->
+    <div class="menu-overlay" id="menuOverlay">
+        <button class="close-btn" id="closeBtn" (click)="closeMenu()">X</button>
+        <nav class="menu">
+            <ul>
+                <li><a routerLink="home">Início</a></li>
+            <li><a routerLink="qr-code-generator">Criador de QR Code</a></li>
+            <li><a routerLink="packs">Preços</a></li>
+            <li><a routerLink="help">Ajuda</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <button class="menu-btn" id="signInBtn" routerLink="sign-in">
+        <i class="fa-solid user"></i>
+    </button>
+</div>
