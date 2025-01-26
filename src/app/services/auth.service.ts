@@ -52,6 +52,7 @@ export class AuthService {
       .post<AuthResponse>(`${environment.url}/auth/sign-in`, { email, password })
       .pipe(
         tap((response) => {
+          this.authStatusSubject.next(true);
           this.saveToken(response.token);
         }),
         catchError(this.handleError)

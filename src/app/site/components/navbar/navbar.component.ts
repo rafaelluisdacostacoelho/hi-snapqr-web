@@ -20,7 +20,6 @@ export class NavbarComponent implements OnInit {
   ) {}
   
   ngOnInit(): void {
-    // Sempre que 'authStatus$' emitir, atualizamos 'isLoggedIn'.
     this.authService.authStatus$.subscribe(status => {
       this.isLoggedIn = status;
     });

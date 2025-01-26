@@ -58,7 +58,7 @@
             routerLink="dashboard">
             <span>Painel</span>
         </app-sqr-button>
-        <app-sqr-button  [icon]="isLoggedIn ? 'fa-solid door-open' : 'fa-solid user'" iconPosition="left"
+        <app-sqr-button [icon]="isLoggedIn ? 'fa-solid door-open' : 'fa-solid user'" iconPosition="left"
             [showIconMobile]="true" [showIconDesktop]="true" [showTextMobile]="false" [showTextDesktop]="true"
             class="primary" (click)="handleAuthAction()">
             {{ isLoggedIn ? 'Sair' : 'Entrar' }}

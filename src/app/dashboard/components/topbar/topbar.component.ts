@@ -21,7 +21,6 @@ export class TopbarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Sempre que 'authStatus$' emitir, atualizamos 'isLoggedIn'.
     this.authService.authStatus$.subscribe(status => {
       this.isLoggedIn = status;
     });
@@ -34,10 +33,8 @@ export class TopbarComponent implements OnInit {
 
   handleAuthAction() {
     if (this.isLoggedIn) {
-      // Se usuário está logado, faz logout
       this.authService.signOut();
     } else {
-      // Se usuário não está logado, vai para tela de login
       this.router.navigate(['/sign-in']);
     }
   }
