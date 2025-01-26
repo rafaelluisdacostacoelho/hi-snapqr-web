@@ -1,9 +1,19 @@
 <div class="topbar">
-    <button *ngIf="isMobile" class="menu-btn" (click)="toggleSidebar()">☰</button>
-    <div class="title">Dashboard</div>
+    <div class="main">
+        <button *ngIf="isMobile" class="menu-btn" (click)="toggleSidebar()">
+            <i class="fa-solid bars"></i>
+        </button>
+    </div>
     <div class="options">
-        <button>Language</button>
-        <button>Settings</button>
-        <button>Logout</button>
+        <app-sqr-button
+            icon="fa-solid door-open"
+            iconPosition="left"
+            [showIconMobile]="true"
+            [showIconDesktop]="true"
+            [showTextMobile]="false"
+            [showTextDesktop]="true"
+            class="primary">
+            <span>Sair</span>
+        </app-sqr-button>
     </div>
 </div>

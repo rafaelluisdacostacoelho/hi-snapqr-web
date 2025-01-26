@@ -12,8 +12,28 @@
         </ul>
     </div>
     <div class="tools">
-        <button routerLink="dashboard">Painel</button>
-        <button routerLink="sign-in">Entrar</button>
+        <app-sqr-button
+            icon="fa-solid qrcode"
+            iconPosition="left"
+            [showIconMobile]="true"
+            [showIconDesktop]="true"
+            [showTextMobile]="false"
+            [showTextDesktop]="true"
+            class="primary"
+            routerLink="dashboard">
+            <span>Painel</span>
+        </app-sqr-button>
+        <app-sqr-button
+            icon="fa-solid user"
+            iconPosition="left"
+            [showIconMobile]="true"
+            [showIconDesktop]="true"
+            [showTextMobile]="false"
+            [showTextDesktop]="true"
+            class="primary"
+            routerLink="sign-in">
+            <span>Entrar</span>
+        </app-sqr-button>
     </div>
 </div>
 

@@ -32,4 +32,7 @@ $icons-solid-path: "../../assets/icons/solids/";
   &.qrcode {
     @include icon('qrcode');
   }
+  &.door-open {
+    @include icon('door-open');
+  }
 }

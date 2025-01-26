@@ -10,9 +10,7 @@ import { RouterLink } from '@angular/router';
 })
 export class SidebarComponent {
   menuItems = [
-    { label: 'Dashboard', link: '/dashboard' },
-    { label: 'Users', link: '/users' },
-    { label: 'Reports', link: '/reports' }
+    { label: 'Dashboard', link: '/dashboard' }
   ];
   isMobile = window.innerWidth < 768;
   isExpanded = !this.isMobile;

@@ -1,0 +1,55 @@
+.sqr-button {
+    /* Estilização base do botão */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .icon {
+    font-size: 20px;
+  }
+  
+  /* Exemplo de classes para mobile/desktop */
+  .hide-on-mobile {
+    display: none !important;
+  }
+  
+  .hide-on-desktop {
+    display: inline-block; /* ou flex, dependendo do elemento */
+  }
+  
+  /* Media Query: A partir de 768px consideramos desktop */
+  @media (min-width: 768px) {
+    .hide-on-mobile {
+      display: inline-block !important; /* Mostra no desktop */
+    }
+  
+    .hide-on-desktop {
+      display: none !important; /* Esconde no desktop */
+    }
+  }
+  
+  /* Exemplo de estilos primário/secondary (ajuste conforme desejar) */
+  .sqr-button.primary {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+  .sqr-button.primary:hover {
+    background-color: var(--primary-hover-color);
+  }
+  .sqr-button.secondary {
+    background-color: var(--secondary-color);
+    color: #fff;
+  }
+  .sqr-button.secondary:hover {
+    background-color: var(--secondary-hover-color);
+  }
+  

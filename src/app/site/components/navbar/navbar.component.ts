@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { SqrButtonComponent } from 'src/app/shared/button/button.component';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, SqrButtonComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })

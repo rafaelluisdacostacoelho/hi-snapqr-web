@@ -1,0 +1,33 @@
+<button [ngClass]="class" class="sqr-button" [disabled]="disabled">
+  
+    <!-- Ícone à esquerda -->
+    <ng-container *ngIf="iconPosition === 'left' && icon">
+      <span
+        class="icon"
+        [ngClass]="icon"
+        [class.hide-on-mobile]="!showIconMobile"
+        [class.hide-on-desktop]="!showIconDesktop"
+      ></span>
+    </ng-container>
+  
+    <!-- Texto -->
+    <span
+      class="label"
+      [class.hide-on-mobile]="!showTextMobile"
+      [class.hide-on-desktop]="!showTextDesktop"
+    >
+      <ng-content></ng-content>
+    </span>
+  
+    <!-- Ícone à direita -->
+    <ng-container *ngIf="iconPosition === 'right' && icon">
+      <span
+        class="icon"
+        [ngClass]="icon"
+        [class.hide-on-mobile]="!showIconMobile"
+        [class.hide-on-desktop]="!showIconDesktop"
+      ></span>
+    </ng-container>
+  
+  </button>
+  
