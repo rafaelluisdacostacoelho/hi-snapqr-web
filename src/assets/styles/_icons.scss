@@ -29,4 +29,7 @@ $icons-solid-path: "../../assets/icons/solids/";
   &.barcode {
     @include icon('barcode');
   }
+  &.qrcode {
+    @include icon('qrcode');
+  }
 }

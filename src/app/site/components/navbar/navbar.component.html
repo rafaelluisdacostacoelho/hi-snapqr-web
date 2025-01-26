@@ -11,7 +11,8 @@
             <li><a routerLink="help">Ajuda</a></li>
         </ul>
     </div>
-    <div class="sign-in-btn">
+    <div class="tools">
+        <button routerLink="dashboard">Painel</button>
         <button routerLink="sign-in">Entrar</button>
     </div>
 </div>
@@ -36,7 +37,13 @@
         </nav>
     </div>
 
-    <button class="menu-btn" id="signInBtn" routerLink="sign-in">
-        <i class="fa-solid user"></i>
-    </button>
+    <div class="tools">
+        <button class="menu-btn" id="dashboardBtn" routerLink="dashboard">
+            <i class="fa-solid qrcode"></i>
+        </button>
+
+        <button class="menu-btn" id="signInBtn" routerLink="sign-in">
+            <i class="fa-solid user"></i>
+        </button>
+    </div>
 </div>

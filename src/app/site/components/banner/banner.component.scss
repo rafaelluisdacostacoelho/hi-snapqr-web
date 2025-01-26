@@ -1,35 +1,43 @@
 .banner {
-    height: 50vh;
     display: flex;
-    align-items: center;
+    height: 70vh;
+    background-image: url('../../../../assets/images/banner.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     justify-content: center;
-    background: linear-gradient(135deg, #08a84b, #8ff31d);
+    align-items: center;
     color: white;
     text-align: center;
-    position: relative;
-    margin: 0;
     padding: 0;
 }
 
+.banner .content {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    width: 100%;
+}
+
 .banner button {
-    margin-top: 20px;
     padding: 10px 20px;
     font-size: 1rem;
-    font-weight: bold;
-    color: #6a0dad;
-    background: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 .banner button:hover {
-    background: #f1d9ff;
+    background-color: #f1d9ff;
 }
 
 .banner button:active {
-    background: #e0abff;
+    background-color: #e0abff;
 }
 
 h1 {
@@ -37,8 +45,7 @@ h1 {
 }
 
 @media (max-width: 768px) {
-    .banner {
-        padding: 20px;
-        padding: 20px;
+    .banner .content {
+        width: 100%;
     }
 }
