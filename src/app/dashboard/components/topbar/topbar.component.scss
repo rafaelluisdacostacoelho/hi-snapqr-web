@@ -1,12 +1,13 @@
-@use '../../../../assets/styles/variables' as vars;
-
 .topbar {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding: 1em;
-    gap: 10px;
     background-color: var(--primary-color);
-    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    padding-right: 20px;
+    top: 0;
+    z-index: 1000;
     height: 10vh;
 }
 
@@ -32,11 +33,13 @@
 .main {
     display: flex;
     justify-content: flex-start;
+    gap: 10px;
 }
 
 .options {
     display: flex;
     justify-content: flex-end;
+    gap: 10px;
 }
 
 .options button {
