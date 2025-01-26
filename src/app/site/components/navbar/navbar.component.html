@@ -12,7 +12,7 @@
         </ul>
     </div>
     <div class="tools">
-        <app-sqr-button
+        <app-sqr-button *ngIf="isLoggedIn"
             icon="fa-solid qrcode"
             iconPosition="left"
             [showIconMobile]="true"
@@ -24,15 +24,15 @@
             <span>Painel</span>
         </app-sqr-button>
         <app-sqr-button
-            icon="fa-solid user"
+            [icon]="isLoggedIn ? 'fa-solid door-open' : 'fa-solid user'"
             iconPosition="left"
             [showIconMobile]="true"
             [showIconDesktop]="true"
             [showTextMobile]="false"
             [showTextDesktop]="true"
             class="primary"
-            routerLink="sign-in">
-            <span>Entrar</span>
+            (click)="handleAuthAction()">
+            {{ isLoggedIn ? 'Sair' : 'Entrar' }}
         </app-sqr-button>
     </div>
 </div>
