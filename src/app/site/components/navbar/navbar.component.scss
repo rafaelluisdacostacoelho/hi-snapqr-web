@@ -6,8 +6,6 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: sticky;
     padding: 20px;
-    top: 0;
-    height: 10vh;
 }
 
 .logo img {
@@ -69,7 +67,7 @@
 
 /* Menu Mobile */
 .mobile-menu {
-    padding: 1em;
+    padding: 20px;
     display: none;
     gap: 10px;
     justify-content: space-between;
@@ -146,6 +144,12 @@
                 }
             }
         }
+    }
+
+    .tools {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
     }
 }
 

@@ -6,7 +6,6 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: sticky;
     padding: 20px;
-    height: 10vh;
 }
 
 .main {
@@ -30,13 +29,4 @@
 .sign-out-btn {
     display: flex;
     gap: 10px;
-}
-
-@media (max-width: 768px) {
-    .options button {
-        width: 45px;
-        height: 45px;
-        background: none;
-        border: none;
-    }
 }
