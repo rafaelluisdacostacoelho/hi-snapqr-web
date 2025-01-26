@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SqrButtonComponent } from 'src/app/shared/button/button.component';
 
@@ -13,10 +13,24 @@ export class SidebarComponent {
   menuItems = [
     { label: 'Dashboard', link: '/dashboard' }
   ];
-  isMobile = window.innerWidth < 768;
-  isExpanded = !this.isMobile;
+  isMobile: boolean;
+  isExpanded: boolean;
 
-  toggleMenu() {
-    this.isExpanded = !this.isExpanded;
+  constructor() {
+    this.isMobile = window.innerWidth < 768;
+    this.isExpanded = !this.isMobile;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.isMobile = window.innerWidth < 768;
+    if (this.isMobile) {
+      this.isExpanded = false;
+    }
+  }
+
+  toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar?.classList.toggle('expanded');
   }
 }
