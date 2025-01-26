@@ -29,30 +29,23 @@ export class NavbarComponent implements OnInit {
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
     const menuOverlay = document.getElementById('menuOverlay');
-    const menuBtn = document.getElementById('menuBtn');
     if (this.isMenuOpen) {
-      menuOverlay!.style.display = 'flex'; // Exibe o menu
-      menuBtn!.classList.add('open');
+      menuOverlay!.style.display = 'flex';
     } else {
-      menuOverlay!.style.display = 'none'; // Esconde o menu
-      menuBtn!.classList.remove('open');
+      menuOverlay!.style.display = 'none';
     }
   }
 
   closeMenu() {
     this.isMenuOpen = false;
     const menuOverlay = document.getElementById('menuOverlay');
-    const menuBtn = document.getElementById('menuBtn');
-    menuOverlay!.style.display = 'none'; // Esconde o menu
-    menuBtn!.classList.remove('open');
+    menuOverlay!.style.display = 'none';
   }
 
   handleAuthAction() {
     if (this.isLoggedIn) {
-      // Se usuário está logado, faz logout
       this.authService.signOut();
     } else {
-      // Se usuário não está logado, vai para tela de login
       this.router.navigate(['/sign-in']);
     }
   }

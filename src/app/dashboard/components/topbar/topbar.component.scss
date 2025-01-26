@@ -5,29 +5,8 @@
     background-color: var(--primary-color);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: sticky;
-    padding-right: 20px;
-    top: 0;
-    z-index: 1000;
+    padding: 20px;
     height: 10vh;
-}
-
-.menu-btn {
-    flex-direction: column;
-    justify-content: space-between;
-    width: 35px;
-    height: 35px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 10;
-    color: #f0f0f0 !important;
-
-    .menu-icon {
-        width: 100%;
-        height: 4px;
-        background-color: #fff;
-        transition: all 0.3s ease;
-    }
 }
 
 .main {

@@ -35,4 +35,7 @@ $icons-solid-path: "../../assets/icons/solids/";
   &.door-open {
     @include icon('door-open');
   }
+  &.close {
+    @include icon('close');
+  }
 }

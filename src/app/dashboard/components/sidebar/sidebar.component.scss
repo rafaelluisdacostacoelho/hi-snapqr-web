@@ -1,19 +1,14 @@
-@use '../../../../assets/styles/variables' as vars;
-
 .sidebar {
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
     background: var(--primary-color);
-    color: #fff;
-    padding: 16px;
     transition: transform 0.3s ease;
 }
 
 .sidebar.mobile {
-    width: 90%;
     position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     transform: translateX(-100%);
     z-index: 100;
 }
@@ -22,15 +17,9 @@
     transform: translateX(0);
 }
 
-.close-btn {
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    position: absolute;
-    top: 16px;
-    right: 16px;
+.controls {
+    display: flex;
+    justify-content: flex-start;
 }
 
 .overlay {

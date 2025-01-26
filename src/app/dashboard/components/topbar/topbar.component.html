@@ -1,8 +1,17 @@
 <div class="topbar">
     <div class="main">
-        <button *ngIf="isMobile" class="menu-btn" (click)="toggleSidebar()">
-            <i class="fa-solid bars"></i>
-        </button>
+        <app-sqr-button
+            *ngIf="isMobile"
+            icon="fa-solid bars"
+            iconPosition="left"
+            [showIconMobile]="true"
+            [showIconDesktop]="true"
+            [showTextMobile]="false"
+            [showTextDesktop]="true"
+            class="primary"
+            (click)="toggleSidebar()">
+            <span>Site</span>
+        </app-sqr-button>
     </div>
     <div class="options">
         <app-sqr-button

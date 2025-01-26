@@ -1,5 +1,18 @@
 <div class="sidebar" [class.mobile]="isMobile" [class.expanded]="isExpanded">
-    <button class="close-btn" *ngIf="isMobile" (click)="toggleMenu()">X</button>
+    <div class="controls">
+        <app-sqr-button
+            *ngIf="isMobile"
+            icon="fa-solid close"
+            iconPosition="left"
+            [showIconMobile]="true"
+            [showIconDesktop]="true"
+            [showTextMobile]="false"
+            [showTextDesktop]="true"
+            class="primary"
+            (click)="toggleMenu()">
+        </app-sqr-button>
+    </div>
+
     <ul>
         <li *ngFor="let item of menuItems" [routerLink]="item.link" routerLinkActive="active">
             {{ item.label }}
