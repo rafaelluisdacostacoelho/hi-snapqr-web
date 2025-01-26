@@ -8,7 +8,6 @@ import { HelpComponent } from './site/components/help/help.component';
 import { PrivacyPolicyComponent } from './site/components/privacy-policy/privacy-policy.component';
 import { ContactComponent } from './site/components/contact/contact.component';
 import { TermsOfServiceComponent } from './site/components/terms-of-service/terms-of-service.component';
-import { RecoveryPasswordComponent } from './site/components/recovery-password/recovery-password.component';
 import { RegisterComponent } from './site/components/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AccountActivationComponent } from './site/components/account-activation/account-activation.component';
@@ -17,6 +16,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './site/components/home/home.component';
 import { MainComponent } from './dashboard/components/main/main.component';
 import { SettingsComponent } from './dashboard/components/settings/settings.component';
+import { ResetPasswordComponent } from './site/components/reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './site/components/forgot-password/forgot-password.component';
+import { ErrorComponent } from './site/components/error/error.component';
 
 export const routes: Routes = [{
     path: '',
@@ -31,10 +33,12 @@ export const routes: Routes = [{
         { path: 'privacy-policy', component: PrivacyPolicyComponent },
         { path: 'terms-of-service', component: TermsOfServiceComponent },
         { path: 'contact', component: ContactComponent },
-        { path: 'recovery-password', component: RecoveryPasswordComponent },
+        { path: 'forgot-password', component: ForgotPasswordComponent },
+        { path: 'reset-password', component: ResetPasswordComponent },
         { path: 'register', component: RegisterComponent },
         { path: 'account-activation', component: AccountActivationComponent },
-        { path: 'account-activated', component: AccountActivatedComponent }
+        { path: 'account-activated', component: AccountActivatedComponent },
+        { path: 'error', component: ErrorComponent },
     ]
 }, {
     path: 'dashboard',

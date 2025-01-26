@@ -26,12 +26,12 @@
     <!-- Menu expandido -->
     <div class="menu-overlay" id="menuOverlay">
         <button class="close-btn" id="closeBtn" (click)="closeMenu()">X</button>
-        <nav class="menu">
+        <nav class="menu" (click)="closeMenu()">
             <ul>
                 <li><a routerLink="home">Início</a></li>
-            <li><a routerLink="qr-code-generator">Criador de QR Code</a></li>
-            <li><a routerLink="packs">Preços</a></li>
-            <li><a routerLink="help">Ajuda</a></li>
+                <li><a routerLink="qr-code-generator">Criador de QR Code</a></li>
+                <li><a routerLink="packs">Preços</a></li>
+                <li><a routerLink="help">Ajuda</a></li>
             </ul>
         </nav>
     </div>
