@@ -14,28 +14,40 @@ $icons-solid-path: "../../assets/icons/solids/";
   &.circle-user {
     @include icon('circle-user');
   }
+
   &.image {
     @include icon('image');
   }
+
   &.user {
     @include icon('user');
   }
+
   &.circle-user {
     @include icon('circle-user');
   }
+
   &.bars {
     @include icon('bars');
   }
+
   &.barcode {
     @include icon('barcode');
   }
+
   &.qrcode {
     @include icon('qrcode');
   }
+
   &.door-open {
     @include icon('door-open');
   }
+
   &.close {
     @include icon('close');
+  }
+
+  &.house {
+    @include icon('house');
   }
 }
