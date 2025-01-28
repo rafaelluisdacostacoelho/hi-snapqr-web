@@ -12,34 +12,34 @@
         </ul>
     </div>
     <div class="tools">
-        <app-sqr-button *ngIf="isLoggedIn" icon="fa-solid qrcode" iconPosition="left" [showIconMobile]="true"
+        <sqr-button *ngIf="isLoggedIn" icon="fa-solid qrcode" iconPosition="left" [showIconMobile]="true"
             [showIconDesktop]="true" [showTextMobile]="false" [showTextDesktop]="true" class="primary"
             routerLink="dashboard">
             <span>Painel</span>
-        </app-sqr-button>
-        <app-sqr-button [icon]="isLoggedIn ? 'fa-solid door-open' : 'fa-solid user'" iconPosition="left"
+        </sqr-button>
+        <sqr-button [icon]="isLoggedIn ? 'fa-solid door-open' : 'fa-solid user'" iconPosition="left"
             [showIconMobile]="true" [showIconDesktop]="true" [showTextMobile]="false" [showTextDesktop]="true"
             class="primary" (click)="handleAuthAction()">
             {{ isLoggedIn ? 'Sair' : 'Entrar' }}
-        </app-sqr-button>
+        </sqr-button>
     </div>
 </div>
 
 <!-- Menu Mobile -->
 <div class="mobile-menu">
     <!-- Botão de menu (Hamburger) -->
-    <app-sqr-button icon="fa-solid bars" iconPosition="left" [showIconMobile]="true"
+    <sqr-button icon="fa-solid bars" iconPosition="left" [showIconMobile]="true"
         [showIconDesktop]="true" [showTextMobile]="false" [showTextDesktop]="true" class="primary"
         (click)="toggleMenu()">
-    </app-sqr-button>
+    </sqr-button>
 
     <!-- Menu expandido -->
     <div class="menu-overlay" id="menuOverlay">
         <div class="controls">
-            <app-sqr-button id="closeBtn" icon="fa-solid close" iconPosition="left"
+            <sqr-button id="closeBtn" icon="fa-solid close" iconPosition="left"
                 [showIconMobile]="true" [showIconDesktop]="true" [showTextMobile]="false" [showTextDesktop]="true"
                 class="primary" (click)="closeMenu()">
-            </app-sqr-button>
+            </sqr-button>
         </div>
 
         <nav class="menu" (click)="closeMenu()">
@@ -53,15 +53,15 @@
     </div>
 
     <div class="tools">
-        <app-sqr-button *ngIf="isLoggedIn" icon="fa-solid qrcode" iconPosition="left" [showIconMobile]="true"
+        <sqr-button *ngIf="isLoggedIn" icon="fa-solid qrcode" iconPosition="left" [showIconMobile]="true"
             [showIconDesktop]="true" [showTextMobile]="false" [showTextDesktop]="true" class="primary"
             routerLink="dashboard">
             <span>Painel</span>
-        </app-sqr-button>
-        <app-sqr-button [icon]="isLoggedIn ? 'fa-solid door-open' : 'fa-solid user'" iconPosition="left"
+        </sqr-button>
+        <sqr-button [icon]="isLoggedIn ? 'fa-solid door-open' : 'fa-solid user'" iconPosition="left"
             [showIconMobile]="true" [showIconDesktop]="true" [showTextMobile]="false" [showTextDesktop]="true"
             class="primary" (click)="handleAuthAction()">
             {{ isLoggedIn ? 'Sair' : 'Entrar' }}
-        </app-sqr-button>
+        </sqr-button>
     </div>
 </div>

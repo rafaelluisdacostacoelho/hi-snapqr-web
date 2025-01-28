@@ -1,0 +1,94 @@
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cards-wrapper {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease;
+    position: relative;
+}
+
+.card-slide {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-btn {
+    background-color: transparent;
+    border: none;
+    color: #333;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 10px;
+    z-index: 2;
+    display: none;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}
+
+.dots-container {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.active-dot {
+    background-color: #4caf50;
+}
+
+@media (min-width: 768px) {
+    .cards-wrapper {
+        display: flex;
+        overflow: visible;
+        transform: none !important;
+    }
+
+    .card-slide {
+        position: static;
+        transform: none !important;
+        min-width: auto;
+    }
+
+    .carousel-btn {
+        display: none !important;
+    }
+
+    .dot {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .carousel-btn {
+        display: block;
+    }
+}

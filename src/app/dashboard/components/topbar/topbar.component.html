@@ -1,7 +1,7 @@
 <div class="topbar">
     <div class="main">
 
-        <app-sqr-button
+        <sqr-button
             *ngIf="isMobile"
             icon="fa-solid bars"
             iconPosition="left"
@@ -12,12 +12,12 @@
             class="primary"
             (click)="toggleSidebar()">
             <span>Site</span>
-        </app-sqr-button>
+        </sqr-button>
 
     </div>
     <div class="options">
 
-        <app-sqr-button
+        <sqr-button
             icon="fa-solid house"
             iconPosition="left"
             [showIconMobile]="true"
@@ -27,9 +27,9 @@
             class="primary"
             routerLink="/">
             <span>Site</span>
-        </app-sqr-button>
+        </sqr-button>
 
-        <app-sqr-button
+        <sqr-button
             icon="fa-solid door-open"
             iconPosition="left"
             [showIconMobile]="true"
@@ -39,7 +39,7 @@
             class="primary"
             (click)="handleAuthAction()">
             <span>Sair</span>
-        </app-sqr-button>
+        </sqr-button>
 
     </div>
 </div>

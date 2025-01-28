@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 import { SiteComponent } from './site/site.component';
 import { QrCodeGeneratorComponent } from './site/components/qr-code-generator/qr-code-generator.component';
 import { SignInComponent } from './site/components/sign-in/sign-in.component';
-import { PacksComponent } from './site/components/packs/packs.component';
+import { PacksComponent } from './site/components/packages/packages.component';
 import { HelpComponent } from './site/components/help/help.component';
 import { PrivacyPolicyComponent } from './site/components/privacy-policy/privacy-policy.component';
 import { ContactComponent } from './site/components/contact/contact.component';
@@ -19,6 +19,8 @@ import { SettingsComponent } from './dashboard/components/settings/settings.comp
 import { ResetPasswordComponent } from './site/components/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './site/components/forgot-password/forgot-password.component';
 import { ErrorComponent } from './site/components/error/error.component';
+import { CheckoutSuccessComponent } from './site/components/checkout-success/checkout-success.component';
+import { CheckoutCancelComponent } from './site/components/checkout-cancel/checkout-cancel.component';
 
 export const routes: Routes = [{
     path: '',
@@ -39,6 +41,8 @@ export const routes: Routes = [{
         { path: 'account-activation', component: AccountActivationComponent },
         { path: 'account-activated', component: AccountActivatedComponent },
         { path: 'error', component: ErrorComponent },
+        { path: 'checkout-success', component: CheckoutSuccessComponent },
+        { path: 'checkout-cancel', component: CheckoutCancelComponent },
     ]
 }, {
     path: 'dashboard',

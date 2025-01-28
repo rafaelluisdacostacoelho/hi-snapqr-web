@@ -1,9 +1,0 @@
-<div class="packages-container">
-    <div class="package" *ngFor="let package of packages">
-        <h3>{{ package.name }}</h3>
-        <p class="description">{{ package.description }}</p>
-        <p class="quantity">Quantidade: {{ package.quantity }}</p>
-        <p class="price">Preço: {{ package.price | currency:'BRL' }}</p>
-        <button>Comprar</button>
-    </div>
-</div>

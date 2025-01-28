@@ -1,6 +1,6 @@
 <div class="sidebar" [class.mobile]="isMobile" [class.expanded]="isExpanded">
     <div class="controls">
-        <app-sqr-button
+        <sqr-button
             *ngIf="isMobile"
             icon="fa-solid close"
             iconPosition="left"
@@ -10,7 +10,7 @@
             [showTextDesktop]="true"
             class="primary"
             (click)="toggleSidebar()">
-        </app-sqr-button>
+        </sqr-button>
     </div>
 
     <ul>

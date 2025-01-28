@@ -23,7 +23,11 @@ h1 {
 }
 
 h2 {
-    @include mix.responsive-font(1.75rem, 2.5rem);
+    @include mix.responsive-font(1.25rem, 2.25rem);
+}
+
+h3 {
+    @include mix.responsive-font(1rem, 2.0rem);
 }
 
 p {

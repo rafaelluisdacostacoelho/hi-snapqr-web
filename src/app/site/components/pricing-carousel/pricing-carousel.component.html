@@ -1,0 +1,39 @@
+<div class="carousel-container">
+
+    <!-- Botão anterior (mobile) -->
+    <button class="carousel-btn left" (click)="prevSlide()">
+      &#10094;
+    </button>
+
+    <!-- Wrapper que contém os slides (cards) -->
+    <div class="cards-wrapper">
+      <div
+        class="card-slide"
+        *ngFor="let product of products; let i = index"
+        [style.transform]="'translateX(' + ((i - currentSlide) * 100) + '%)'"
+      >
+        <app-product-card
+          [productId]="product.productId"
+          [name]="product.name"
+          [description]="product.description"
+          [price]="product.price.unitAmount"
+          [priceId]="product.price.priceId"
+        ></app-product-card>
+      </div>
+    </div>
+
+    <!-- Botão próximo (mobile) -->
+    <button class="carousel-btn right" (click)="nextSlide()">
+      &#10095;
+    </button>
+  </div>
+
+  <!-- Dots (bolinhas) de navegação (mobile) -->
+  <div class="dots-container">
+    <span
+      *ngFor="let product of products; let i = index"
+      class="dot"
+      [class.active-dot]="i === currentSlide"
+      (click)="goToSlide(i)"
+    ></span>
+  </div>

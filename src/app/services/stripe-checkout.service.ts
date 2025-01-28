@@ -1,25 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+import { environment } from '../../environments/environment';
+import { CheckoutResponse } from '../models/checkout.response';
+import { ProductResponse } from '../models/product.response';
+
 @Injectable({
   providedIn: 'root'
 })
 export class StripeCheckoutService {
 
-  private apiUrl = 'http://localhost:5000/api/payments'; // Ajuste conforme seu endpoint
+  constructor(private http: HttpClient) { }
 
-  constructor(private http: HttpClient) {}
+  createCheckoutSession(priceId: string) {
+    return this.http.post<CheckoutResponse>(`${environment.url}/packages/create-checkout-session`, { priceId });
+  }
 
-  createCheckoutSession(amount: number, currency: string, productName: string) {
-    const successUrl = 'http://localhost:4200/success';
-    const cancelUrl = 'http://localhost:4200/cancel';
-
-    return this.http.post<{ url: string }>(`${this.apiUrl}/create-checkout-session`, {
-      amount: amount,
-      currency: currency,
-      productName: productName,
-      successUrl: successUrl,
-      cancelUrl: cancelUrl
-    });
+  getProducts() {
+    return this.http.get<ProductResponse[]>(`${environment.url}/packages`);
   }
 }
