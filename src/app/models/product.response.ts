@@ -1,3 +1,4 @@
+import { MetadataResponse } from "./metadata.response";
 import { PriceResponse } from "./price.response";
 
 export interface ProductResponse {
@@ -5,4 +6,5 @@ export interface ProductResponse {
     name: string;
     description: string;
     price: PriceResponse;
+    metadata: MetadataResponse;
 }

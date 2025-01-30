@@ -101,18 +101,15 @@ export class AuthService {
     throw error;
   }
 
-  /**
-   * Retorna true se o usuário estiver logado.
-   */
   isAuthenticated(): boolean {
     const token = localStorage.getItem(this.tokenKey);
     return !!token && !this.isTokenExpired(token);
   }
 
-  /**
-   * Caso queira verificar expiração via payload do JWT.
-   * Exemplo simples (sem validar assinatura).
-   */
+  navigateToLogin(): void {
+    this.router.navigate(['/sign-in']);
+  }
+  
   private isTokenExpired(token: string): boolean {
     try {
       const payload = JSON.parse(atob(token.split('.')[1]));

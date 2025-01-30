@@ -1,0 +1,79 @@
+name: Build and Deploy to DigitalOcean Droplet
+
+on:
+  push:
+    branches: [ "master" ]
+  # Adicione outros gatilhos se desejar (tags, pull_request, etc.)
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1) Baixa o repositório
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      # 2) Configura Node.js (ajuste a versão se necessário)
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # 3) Instala dependências (npm ci usa o package-lock.json)
+      - name: Install dependencies
+        run: npm ci
+
+      # 4) Compila o Angular em modo produção
+      - name: Build Angular
+        run: npm run build -- --configuration production
+
+      # 5) Copia a pasta de build (dist/hi-snapqr-web) para o Droplet
+      - name: Copy build to Droplet
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.DROPLET_HOST }}
+          username: ${{ secrets.DROPLET_USER }}
+          key: ${{ secrets.DROPLET_SSH_KEY }}
+          source: "dist/hi-snapqr-web/*"
+          target: "/var/www/hi-snapqr-web/"
+
+      # 6) Copia o arquivo de configuração do Nginx para /tmp no Droplet
+      - name: Copy hi-snapqr-web.conf
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.DROPLET_HOST }}
+          username: ${{ secrets.DROPLET_USER }}
+          key: ${{ secrets.DROPLET_SSH_KEY }}
+          source: "hi-snapqr-web.conf"
+          target: "/tmp/hi-snapqr-web.conf"
+
+      # 7) Copia o script de deploy para /tmp no Droplet
+      - name: Copy deploy script
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.DROPLET_HOST }}
+          username: ${{ secrets.DROPLET_USER }}
+          key: ${{ secrets.DROPLET_SSH_KEY }}
+          source: "deploy_nginx.sh"
+          target: "/tmp/deploy_nginx.sh"
+
+      # 8) Conecta no Droplet via SSH e executa o script de deploy
+      - name: Run deploy script on Droplet
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.DROPLET_HOST }}
+          username: ${{ secrets.DROPLET_USER }}
+          key: ${{ secrets.DROPLET_SSH_KEY }}
+          script: |
+            echo ">>> Dando permissão de execução ao script..."
+            chmod +x /tmp/deploy_nginx.sh
+
+            # Se quiser mover o conf junto do script, faça algo do tipo:
+            echo ">>> Movendo arquivo de conf para o mesmo local..."
+            mv /tmp/hi-snapqr-web.conf /tmp/hi-snapqr-web/hi-snapqr-web.conf 2>/dev/null || true
+
+            echo ">>> Executando script de deploy..."
+            sudo /tmp/deploy_nginx.sh
+
+            echo ">>> Deploy concluído! Verifique o site."

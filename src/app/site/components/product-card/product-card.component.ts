@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input, Input, OnInit } from '@angular/core';
 
 import { SqrCheckoutComponent } from '../checkout-button/checkout-button.component';
 
@@ -9,10 +9,19 @@ import { SqrCheckoutComponent } from '../checkout-button/checkout-button.compone
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss'
 })
-export class PlanCardComponent {
+export class PlanCardComponent implements OnInit {
   @Input() productId = '';
   @Input() name = '';
   @Input() description = '';
+  @Input() quantity = '';
   @Input() price = 0;
   @Input() priceId = '';
+  @Input() imageUrl = '';
+  @Input() imageCaption = '';
+
+  quantityNumber: number = 0;
+
+  ngOnInit() {
+    this.quantityNumber = Number(this.quantity);
+  }
 }

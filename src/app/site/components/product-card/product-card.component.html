@@ -1,7 +1,20 @@
-<div class="product-card">
-    <h3>{{ name }}</h3>
-    <p class="subtitle">{{ description }}</p>
-    <p class="price">R$ {{ price }}</p>
-
-    <sqr-checkout-button [priceId]="priceId"></sqr-checkout-button>
-</div>
+<article class="product-card">
+    <header>
+        <h1>{{ name }}</h1>
+    </header>
+    <section>
+        <p class="quantity">+ {{ quantity }} QR Codes</p>
+        <p class="price">R$ {{ price/100 }}</p>
+        <p class="unity-price">R$ {{ price/100/quantityNumber }} por unidade</p>
+    </section>
+    <figure *ngIf="imageUrl">
+        <img src="{{ imageUrl }}" alt="Imagem do produto {{ name }}" class="product-image">
+        <figcaption>{{ imageCaption }}</figcaption>
+    </figure>
+    <section>
+        <p class="description">{{ description }}</p>
+    </section>
+    <footer>
+        <sqr-checkout-button [priceId]="priceId"></sqr-checkout-button>
+    </footer>
+</article>
