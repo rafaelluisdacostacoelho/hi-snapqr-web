@@ -1,0 +1,85 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Presentation */
+.presentation {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.presentation-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+
+    & p {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+.presentation-image img {
+    max-width: 100%;
+}
+
+/* Diferenciais */
+.diferenciais {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.cards-wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.card {
+    max-width: 220px;
+}
+
+.card img {
+    width: 64px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+/* Cases */
+.cases {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.cases-content {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.case-card {
+    width: 250px;
+    text-align: center;
+}
+
+.case-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+}
+
+/* CTA final */
+.cta-final {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    margin: 4rem 0 2rem 0;
+}

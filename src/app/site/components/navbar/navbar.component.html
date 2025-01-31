@@ -6,7 +6,8 @@
     <div class="main-menu">
         <ul>
             <li><a routerLink="home">Início</a></li>
-            <li><a routerLink="qr-code-generator">Criador de QR Code</a></li>
+            <!-- <li><a routerLink="qr-code-generator">Criador de QR Code</a></li> -->
+            <li><a routerLink="services">Serviços</a></li>
             <li><a routerLink="packs">Preços</a></li>
             <li><a routerLink="help">Ajuda</a></li>
         </ul>
@@ -28,17 +29,16 @@
 <!-- Menu Mobile -->
 <div class="mobile-menu">
     <!-- Botão de menu (Hamburger) -->
-    <sqr-button icon="fa-solid bars" iconPosition="left" [showIconMobile]="true"
-        [showIconDesktop]="true" [showTextMobile]="false" [showTextDesktop]="true" class="primary"
-        (click)="toggleMenu()">
+    <sqr-button icon="fa-solid bars" iconPosition="left" [showIconMobile]="true" [showIconDesktop]="true"
+        [showTextMobile]="false" [showTextDesktop]="true" class="primary" (click)="toggleMenu()">
     </sqr-button>
 
     <!-- Menu expandido -->
     <div class="menu-overlay" id="menuOverlay">
         <div class="controls">
-            <sqr-button id="closeBtn" icon="fa-solid close" iconPosition="left"
-                [showIconMobile]="true" [showIconDesktop]="true" [showTextMobile]="false" [showTextDesktop]="true"
-                class="primary" (click)="closeMenu()">
+            <sqr-button id="closeBtn" icon="fa-solid close" iconPosition="left" [showIconMobile]="true"
+                [showIconDesktop]="true" [showTextMobile]="false" [showTextDesktop]="true" class="primary"
+                (click)="closeMenu()">
             </sqr-button>
         </div>
 

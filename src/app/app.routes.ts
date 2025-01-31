@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 
 import { SiteComponent } from './site/site.component';
-import { QrCodeGeneratorComponent } from './site/components/qr-code-generator/qr-code-generator.component';
 import { SignInComponent } from './site/components/sign-in/sign-in.component';
 import { PacksComponent } from './site/components/packages/packages.component';
 import { HelpComponent } from './site/components/help/help.component';
@@ -21,6 +20,8 @@ import { ForgotPasswordComponent } from './site/components/forgot-password/forgo
 import { ErrorComponent } from './site/components/error/error.component';
 import { CheckoutSuccessComponent } from './site/components/checkout-success/checkout-success.component';
 import { CheckoutCancelComponent } from './site/components/checkout-cancel/checkout-cancel.component';
+import { ServicesComponent } from './site/components/services/services.component';
+import { QrCodeGeneratorComponent } from './dashboard/components/qr-code-generator/qr-code-generator.component';
 
 export const routes: Routes = [{
     path: '',
@@ -28,7 +29,7 @@ export const routes: Routes = [{
     children: [
         { path: '', redirectTo: 'home', pathMatch: 'full' },
         { path: 'home', component: HomeComponent },
-        { path: 'qr-code-generator', component: QrCodeGeneratorComponent },
+        { path: 'services', component: ServicesComponent },
         { path: 'packs', component: PacksComponent },
         { path: 'help', component: HelpComponent },
         { path: 'sign-in', component: SignInComponent },
@@ -51,6 +52,7 @@ export const routes: Routes = [{
     children: [
         { path: '', redirectTo: 'main', pathMatch: 'full' },
         { path: 'main', component: MainComponent },
+        { path: 'qr-code-generator', component: QrCodeGeneratorComponent },
         { path: 'settings', component: SettingsComponent },
     ]
 }, { path: '**', redirectTo: '' }];

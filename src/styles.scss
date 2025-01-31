@@ -4,7 +4,7 @@
 @use './assets/styles/buttons';
 @use './assets/styles/animations';
 @use './assets/styles/typography';
-
+@use './assets/styles/cards';
 
 label {
     color: #6a0dad !important;
@@ -111,6 +111,14 @@ input:active {
 
 .text-center {
     text-align: center;
+}
+
+.text-shadow {
+    text-shadow: 4px 3px 4px rgba(0, 0, 0, 0.8);
+}
+
+.box-shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
