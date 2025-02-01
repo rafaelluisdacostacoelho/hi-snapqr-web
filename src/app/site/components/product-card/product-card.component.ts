@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, input, Input, OnInit } from '@angular/core';
 
 import { SqrCheckoutComponent } from '../checkout-button/checkout-button.component';
+import { CurrencyFormatPipe } from 'src/app/pipes/currency-format.pipe';
 
 @Component({
   selector: 'app-product-card',
-  imports: [CommonModule, SqrCheckoutComponent],
+  imports: [CommonModule, SqrCheckoutComponent, CurrencyFormatPipe],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss'
 })

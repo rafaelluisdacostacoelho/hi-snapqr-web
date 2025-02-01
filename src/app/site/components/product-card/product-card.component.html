@@ -1,20 +1,35 @@
-<article class="product-card">
+<article class="product-card" itemscope itemtype="https://schema.org/Product">
     <header>
-        <h1>{{ name }}</h1>
+        <!-- Título do produto -->
+        <h2 itemprop="name">✨ {{ name }}</h2>
     </header>
     <section>
-        <p class="quantity">+ {{ quantity }} QR Codes</p>
-        <p class="price">R$ {{ price/100 }}</p>
-        <p class="unity-price">R$ {{ price/100/quantityNumber }} por unidade</p>
+        <!-- Quantidade de Créditos -->
+        <p class="quantity" itemprop="description">{{ quantity }} Créditos</p>
+        <!-- Preço total -->
+        <p class="price">
+            <span itemprop="price">💵 {{ price / 100  | currencyFormat: 'BRL'}}</span>
+        </p>
+        <!-- Preço por unidade -->
+        <p class="unity-price">🪙 {{ price / 100 / quantityNumber | currencyFormat: 'BRL' }} por unidade</p>
     </section>
     <figure *ngIf="imageUrl">
-        <img src="{{ imageUrl }}" alt="Imagem do produto {{ name }}" class="product-image">
+        <!-- Imagem do produto -->
+        <img src="{{ imageUrl }}" alt="Imagem do produto {{ name }}: ideal para gerar {{ quantity }} QR Codes"
+            class="product-image" itemprop="image">
         <figcaption>{{ imageCaption }}</figcaption>
     </figure>
     <section>
-        <p class="description">{{ description }}</p>
+        <!-- Descrição -->
+        <p class="description" itemprop="description">📋 {{ description }}</p>
     </section>
     <footer>
-        <sqr-checkout-button [priceId]="priceId"></sqr-checkout-button>
+        <!-- Botão com destaque -->
+        <sqr-checkout-button [priceId]="priceId" itemprop="offers" itemscope
+            itemtype="https://schema.org/Offer">
+            <meta itemprop="priceCurrency" content="BRL" />
+            <link itemprop="availability" href="https://schema.org/InStock" />
+            <span>🛒 Comprar Agora</span>
+        </sqr-checkout-button>
     </footer>
 </article>

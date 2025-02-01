@@ -1,39 +1,82 @@
 .product-card {
-    border: 2px solid #6a1b9a;
-    border-radius: 10px;
-    padding: 20px;
     width: 350px;
-    transition: transform 0.2s;
-    margin: 10px;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    padding: 25px;
     text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1), inset 0 -2px 4px rgba(0, 0, 0, 0.05);
+    font-family: var(--font-family);
+    transition: transform 0.3s, box-shadow 0.3s;
 
     &:hover {
-        border: 2px solid #6a1b9a;
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     }
 
-    & .price, & .quantity, & .description, & .unity-price {
-        margin: 10px 0;
-    }
-
-    & h1 {
+    /* Estilo do título */
+    & h2 {
         margin: 0;
-        font-size: 1.2em;
-        color: #6a1b9a;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #4a4a4a;
+        margin-bottom: 15px;
+        text-transform: uppercase;
     }
 
-    & .unity-price{
-        font-size: 0.8em;
+    /* Quantidade */
+    & .quantity {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: var(--primary-color);
+        margin: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
+    & .quantity::before {
+        content: "📦";
+        font-size: 1.5rem;
+        margin-right: 8px;
+    }
+
+    /* Preço */
+    & .price {
+        font-size: 2.2rem;
+        font-weight: bold;
+        color: #058f00;
+        margin: 5px 0;
+    }
+
+    /* Preço por unidade */
+    & .unity-price {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #666;
+        margin-bottom: 15px;
+    }
+
+    /* Descrição */
+    & .description {
+        font-size: 1rem;
+        color: #555;
+        margin: 10px 0 15px;
+        line-height: 1.6;
+    }
+
+    /* Imagem do produto */
     & .product-image {
         display: block;
         margin: 20px auto;
         max-width: 100%;
+        border-radius: 15px;
         height: auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
+    /* Rodapé */
     & footer {
-        text-align: center;
         margin-top: 20px;
     }
 }
