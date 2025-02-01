@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 
 import { SiteComponent } from './site/site.component';
 import { SignInComponent } from './site/components/sign-in/sign-in.component';
-import { PacksComponent } from './site/components/packages/packages.component';
+import { PackagesComponent } from './site/components/packages/packages.component';
 import { HelpComponent } from './site/components/help/help.component';
 import { PrivacyPolicyComponent } from './site/components/privacy-policy/privacy-policy.component';
 import { ContactComponent } from './site/components/contact/contact.component';
@@ -31,7 +31,7 @@ export const routes: Routes = [{
         { path: '', redirectTo: 'home', pathMatch: 'full' },
         { path: 'home', component: HomeComponent },
         { path: 'services', component: ServicesComponent },
-        { path: 'packs', component: PacksComponent },
+        { path: 'packages', component: PackagesComponent },
         { path: 'help', component: HelpComponent },
         { path: 'sign-in', component: SignInComponent },
         { path: 'privacy-policy', component: PrivacyPolicyComponent },

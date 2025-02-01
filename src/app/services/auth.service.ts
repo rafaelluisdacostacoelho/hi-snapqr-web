@@ -20,6 +20,7 @@ export class AuthService {
   public authStatus$ = this.authStatusSubject.asObservable();
 
   private tokenKey = 'auth_token';
+  private returnUrlKey = 'return_url';
 
   constructor(private http: HttpClient, private router: Router) {
     this.checkTokenOnLoad();
@@ -54,6 +55,11 @@ export class AuthService {
         tap((response) => {
           this.authStatusSubject.next(true);
           this.saveToken(response.token);
+
+          // Após login, redireciona para a URL salva
+          const returnUrl = this.getReturnUrl();
+          this.clearReturnUrl(); // Limpa a URL salva
+          this.router.navigateByUrl(returnUrl); // Redireciona para a tela anterior
         }),
         catchError(this.handleError)
       );
@@ -88,7 +94,6 @@ export class AuthService {
   signOut(): void {
     localStorage.removeItem(this.tokenKey);
     this.authStatusSubject.next(false);
-    this.router.navigate(['/sign-in']);
   }
 
   getAuthHeaders(): HttpHeaders {
@@ -106,8 +111,22 @@ export class AuthService {
     return !!token && !this.isTokenExpired(token);
   }
 
-  navigateToLogin(): void {
-    this.router.navigate(['/sign-in']);
+  // Salvar a URL de retorno no localStorage
+  setReturnUrl(url: string): void {
+    localStorage.setItem(this.returnUrlKey, url);
+  }
+
+  getReturnUrl(): string {
+    return localStorage.getItem(this.returnUrlKey) || '/'; // Retorna '/' caso não tenha URL
+  }
+
+  clearReturnUrl(): void {
+    localStorage.removeItem(this.returnUrlKey);
+  }
+
+  navigateToLogin(returnUrl: string): void {
+    this.setReturnUrl(returnUrl); // Salva a URL atual antes de redirecionar
+    this.router.navigate(['/sign-in'], { queryParams: { returnUrl } });
   }
   
   private isTokenExpired(token: string): boolean {

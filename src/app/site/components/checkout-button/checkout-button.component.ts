@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 import { StripeCheckoutService } from 'src/app/services/stripe-checkout.service';
 import { SqrButtonComponent } from "../../../shared/button/button.component";
 import { AuthService } from 'src/app/services/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'sqr-checkout-button',
@@ -13,7 +14,11 @@ import { AuthService } from 'src/app/services/auth.service';
 export class SqrCheckoutComponent {
   @Input() priceId = '';
 
-  constructor(private authService: AuthService, private stripeCheckoutService: StripeCheckoutService) { }
+  constructor(
+    private authService: AuthService,
+    private stripeCheckoutService: StripeCheckoutService,
+    private router: Router
+  ) { }
 
   goToCheckout() {
     if (this.authService.isAuthenticated()) {
@@ -28,7 +33,8 @@ export class SqrCheckoutComponent {
           }
         });
     } else {
-      this.authService.navigateToLogin();
+      const currentUrl = this.router.url;
+      this.authService.navigateToLogin(currentUrl);
     }
   }
 }

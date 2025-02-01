@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -13,14 +13,26 @@ import { AuthService } from '../../../services/auth.service';
   styleUrl: './sign-in.component.scss'
 })
 export class SignInComponent {
+  returnUrl: string = '/'; // Caminho padrão caso não tenha returnUrl
+
   errorMessage: string = '';
 
   signInForm: FormGroup;
 
-  constructor(private authService: AuthService, private fb: FormBuilder, private router: Router) {
+  constructor(
+    private authService: AuthService,
+    private fb: FormBuilder,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     this.signInForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
+    });
+
+    // Captura o parâmetro returnUrl da rota
+    this.route.queryParams.subscribe((params) => {
+      this.returnUrl = params['returnUrl'] || '/';
     });
   }
 
@@ -30,9 +42,6 @@ export class SignInComponent {
       this.authService
         .signIn(email, password)
         .subscribe({
-          next: () => {
-            this.router.navigate(['./dashboard']);
-          },
           error: () => {
             this.errorMessage = 'Credenciais inválidas. Tente novamente.';
           }

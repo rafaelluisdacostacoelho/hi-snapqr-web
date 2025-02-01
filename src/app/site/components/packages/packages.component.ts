@@ -9,6 +9,6 @@ import { PricingCarouselComponent } from "../pricing-carousel/pricing-carousel.c
   templateUrl: './packages.component.html',
   styleUrl: './packages.component.scss'
 })
-export class PacksComponent {
+export class PackagesComponent {
 
 }
