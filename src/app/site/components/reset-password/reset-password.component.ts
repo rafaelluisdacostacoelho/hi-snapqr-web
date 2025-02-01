@@ -47,9 +47,10 @@ export class ResetPasswordComponent {
     if (this.resetPasswordForm.valid) {
       const request = this.resetPasswordForm.value;
       this.authService.resetPassword(request).subscribe({
-        next: (response) => {
+        next: (response: any) => {
           this.successMessage = response;
           this.errorMessage = '';
+          window.location.href = response.redirectUrl;
         },
         error: (err) => {
           this.successMessage = '';
