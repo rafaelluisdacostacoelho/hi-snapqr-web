@@ -1,56 +1,14 @@
 .banner {
-    display: flex;
-    height: 70vh;
-    background-image: url('../../../../assets/images/banner.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-    padding: 0;
-
-    & h1, h2 {
-        margin: 0;
-        color: white;
-    }
-
-    & h2 {
-        font-size: 1em;
-    }
-
-    & .content {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        padding: 20px;
+    & > a {
         width: 100%;
-    }
+        display: block;
 
-    & button {
-        margin-top: 20px;
-        padding: 10px 20px;
-        font-size: 1rem;
-        width: 200px;
-        border: none;
-        border-radius: 5px;
-        background-color: #007bff;
-        color: white;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    & button:hover {
-        background-color: #f1d9ff;
-    }
-
-    & button:active {
-        background-color: #e0abff;
+        & > img {
+            width: 100%;
+            height: auto;
+        }
     }
 }
-
-
 
 @media (max-width: 768px) {
     .banner .content {
