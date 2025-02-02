@@ -13,8 +13,6 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class ResetPasswordComponent {
   resetPasswordForm: FormGroup;
-  successMessage: string = '';
-  errorMessage: string = '';
   token: string | null = null;
 
   constructor(
@@ -31,12 +29,9 @@ export class ResetPasswordComponent {
   }
 
   ngOnInit(): void {
-    // Captura a query string "token"
     this.token = this.route.snapshot.queryParamMap.get('token');
 
-    // Verifica se o token é válido (não nulo ou vazio)
     if (!this.token) {
-      // Redireciona para outra página ou exibe uma mensagem de erro
       this.router.navigate(['/error'], {
         queryParams: { message: 'Token inválido ou ausente' },
       });
@@ -48,7 +43,6 @@ export class ResetPasswordComponent {
       const request = this.resetPasswordForm.value;
       this.authService.resetPassword(request).subscribe({
         next: (response: any) => {
-          this.errorMessage = '';
           window.location.href = response.redirectUrl;
         }
       });

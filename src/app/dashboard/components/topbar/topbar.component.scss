@@ -30,3 +30,19 @@
     display: flex;
     gap: 10px;
 }
+
+
+.logo img {
+    transition: height 0.3s ease;
+}
+
+.logo {
+    display: flex;
+    justify-content: flex-start;
+    height: 50px;
+    min-width: 300px;
+
+    img {
+        height: 50px;
+    }
+}
