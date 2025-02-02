@@ -23,6 +23,7 @@ import { CheckoutCancelComponent } from './site/components/checkout-cancel/check
 import { ServicesComponent } from './site/components/services/services.component';
 import { QrCodeGeneratorComponent } from './dashboard/components/qr-code-generator/qr-code-generator.component';
 import { PasswordChangedComponent } from './site/components/password-changed/password-changed.component';
+import { ForgotPasswordSuccessComponent } from './site/components/forgot-password-success/forgot-password-success.component';
 
 export const routes: Routes = [{
     path: '',
@@ -46,6 +47,7 @@ export const routes: Routes = [{
         { path: 'checkout-success', component: CheckoutSuccessComponent },
         { path: 'checkout-cancel', component: CheckoutCancelComponent },
         { path: 'password-changed', component: PasswordChangedComponent },
+        { path: 'forgot-password-success', component: ForgotPasswordSuccessComponent }
     ]
 }, {
     path: 'dashboard',

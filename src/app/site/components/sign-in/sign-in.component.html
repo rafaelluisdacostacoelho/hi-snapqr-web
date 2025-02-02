@@ -2,29 +2,21 @@
     <h2>Acesso</h2>
     <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
         <div>
-            <label for="email">Email</label>
+            <label for="email">Email <b class="form-error">*</b></label>
             <input id="email" type="text" formControlName="email" />
-            <div *ngIf="signInForm.get('email')?.invalid && signInForm.get('email')?.touched" class="error">
-                Email é obrigatório.
+            <div *ngIf="signInForm.get('email')?.invalid && signInForm.get('email')?.touched" class="form-error">
+                <small>Email é obrigatório.</small>
             </div>
         </div>
-
         <div>
-            <label for="password">Password</label>
+            <label for="password">Password <b class="form-error">*</b></label>
             <input id="password" type="password" formControlName="password" />
-            <div *ngIf="signInForm.get('password')?.invalid && signInForm.get('password')?.touched" class="error">
-                Password é obrigatório.
+            <div *ngIf="signInForm.get('password')?.invalid && signInForm.get('password')?.touched" class="form-error">
+                <small>Password é obrigatório.</small>
             </div>
         </div>
-
-        <p class="text-center">
-            <a routerLink="../forgot-password" class="form-link">Esqueci minha senha</a>
-        </p>
-
-        <p class="text-center">
-            <a routerLink="../register" class="form-link">Criar conta</a>
-        </p>
-
+        <a routerLink="../forgot-password" class="form-link">Esqueci minha senha</a>
+        <a routerLink="../register" class="form-link">Criar conta</a>
         <button type="submit" [disabled]="signInForm.invalid">Acessar</button>
     </form>
 </section>

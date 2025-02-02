@@ -56,16 +56,10 @@ export class RegisterComponent {
           this.registerForm.value.password
         )
         .subscribe({
-          next: (response) => {
-            console.log("Registration success");
+          next: () => {
             this.router.navigate(['account-activation']);
-          },
-          error: (err) => {
-            console.error('Registration failed', err);
-          },
+          }
         });
-    } else {
-      console.log('Form not valid');
     }
   }
 }

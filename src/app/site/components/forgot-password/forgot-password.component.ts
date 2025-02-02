@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 
 import { AuthService } from '../../../services/auth.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgot-password',
@@ -11,11 +12,13 @@ import { CommonModule } from '@angular/common';
 })
 export class ForgotPasswordComponent {
   forgotPasswordForm: FormGroup;
-  successMessage: string = '';
-  errorMessage: string = '';
 
-  constructor(private authService: AuthService, private fb: FormBuilder) {
-    this.forgotPasswordForm = this.fb.group({
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) {
+    this.forgotPasswordForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
     });
   }
@@ -23,16 +26,13 @@ export class ForgotPasswordComponent {
   onSubmit() {
     if (this.forgotPasswordForm.valid) {
       const request = this.forgotPasswordForm.value;
-      this.authService.forgotPassword(request).subscribe({
-        next: (response) => {
-          this.successMessage = response;
-          this.errorMessage = '';
-        },
-        error: (err) => {
-          this.successMessage = '';
-          this.errorMessage = err.error || 'Erro ao enviar o pedido de recuperação.';
-        },
-      });
+      this.authService
+        .forgotPassword(request)
+        .subscribe({
+          next: () => {
+            this.router.navigate(['/forgot-password-success']);
+          }
+        });
     }
   }
 }

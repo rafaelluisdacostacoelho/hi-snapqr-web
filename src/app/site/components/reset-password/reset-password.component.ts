@@ -48,14 +48,9 @@ export class ResetPasswordComponent {
       const request = this.resetPasswordForm.value;
       this.authService.resetPassword(request).subscribe({
         next: (response: any) => {
-          this.successMessage = response;
           this.errorMessage = '';
           window.location.href = response.redirectUrl;
-        },
-        error: (err) => {
-          this.successMessage = '';
-          this.errorMessage = err.error || 'Erro ao redefinir a senha.';
-        },
+        }
       });
     }
   }
