@@ -41,11 +41,7 @@ export class AuthService {
 
   register(name: string, email: string, password: string): Observable<AuthResponse> {
     const body = { name, email, password };
-    return this.http
-      .post<AuthResponse>(`${environment.url}/auth/register`, body)
-      .pipe(
-        catchError(this.handleError)
-      );
+    return this.http.post<AuthResponse>(`${environment.url}/auth/register`, body);
   }
 
   signIn(email: string, password: string): Observable<AuthResponse> {
@@ -61,7 +57,6 @@ export class AuthService {
           this.clearReturnUrl(); // Limpa a URL salva
           this.router.navigateByUrl(returnUrl); // Redireciona para a tela anterior
         }),
-        catchError(this.handleError)
       );
   }
 
@@ -101,23 +96,17 @@ export class AuthService {
     return token ? new HttpHeaders({ Authorization: `Bearer ${token}` }) : new HttpHeaders();
   }
 
-  private handleError(error: any): Observable<never> {
-    console.error('Erro no AuthService:', error);
-    throw error;
-  }
-
   isAuthenticated(): boolean {
     const token = localStorage.getItem(this.tokenKey);
     return !!token && !this.isTokenExpired(token);
   }
 
-  // Salvar a URL de retorno no localStorage
   setReturnUrl(url: string): void {
     localStorage.setItem(this.returnUrlKey, url);
   }
 
   getReturnUrl(): string {
-    return localStorage.getItem(this.returnUrlKey) || '/'; // Retorna '/' caso não tenha URL
+    return localStorage.getItem(this.returnUrlKey) || '/';
   }
 
   clearReturnUrl(): void {
@@ -125,17 +114,18 @@ export class AuthService {
   }
 
   navigateToLogin(returnUrl: string): void {
-    this.setReturnUrl(returnUrl); // Salva a URL atual antes de redirecionar
+    this.setReturnUrl(returnUrl);
     this.router.navigate(['/sign-in'], { queryParams: { returnUrl } });
   }
-  
+
   private isTokenExpired(token: string): boolean {
     try {
+      const miliseconds = 1000;
       const payload = JSON.parse(atob(token.split('.')[1]));
-      const exp = payload.exp * 1000; // exp é em segundos, convertendo p/ ms
+      const exp = payload.exp * miliseconds;
       return Date.now() > exp;
     } catch (e) {
-      return true; // Se der erro, consideramos expirado
+      return true;
     }
   }
 }

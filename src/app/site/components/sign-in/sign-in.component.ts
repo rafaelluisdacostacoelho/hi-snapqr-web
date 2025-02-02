@@ -38,13 +38,7 @@ export class SignInComponent {
   onSubmit(): void {
     if (this.signInForm.valid) {
       const { email, password } = this.signInForm.value;
-      this.authService
-        .signIn(email, password)
-        .subscribe({
-          error: () => {
-            this.errorMessage = 'Credenciais inválidas. Tente novamente.';
-          }
-        });
+      this.authService.signIn(email, password).subscribe();
     }
   }
 }
