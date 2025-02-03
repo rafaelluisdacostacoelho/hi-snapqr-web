@@ -21,9 +21,11 @@ import { ErrorComponent } from './site/components/error/error.component';
 import { CheckoutSuccessComponent } from './site/components/checkout-success/checkout-success.component';
 import { CheckoutCancelComponent } from './site/components/checkout-cancel/checkout-cancel.component';
 import { ServicesComponent } from './site/components/services/services.component';
-import { QrCodeGeneratorComponent } from './dashboard/components/qr-code-generator/qr-code-generator.component';
+import { QRCodeGeneratorComponent } from './dashboard/components/qrcode-generator/qrcode-generator.component';
 import { PasswordChangedComponent } from './site/components/password-changed/password-changed.component';
 import { ForgotPasswordSuccessComponent } from './site/components/forgot-password-success/forgot-password-success.component';
+import { QRCodeAddComponent } from './dashboard/components/qrcode-add/qrcode-add.component';
+import { QRCodeListComponent } from './dashboard/components/qrcode-list/qrcode-list.component';
 
 export const routes: Routes = [{
     path: '',
@@ -56,7 +58,9 @@ export const routes: Routes = [{
     children: [
         { path: '', redirectTo: 'main', pathMatch: 'full' },
         { path: 'main', component: MainComponent },
-        { path: 'qr-code-generator', component: QrCodeGeneratorComponent },
+        { path: 'qrcode-list', component: QRCodeListComponent },
+        { path: 'qrcode-add', component: QRCodeAddComponent },
+        { path: 'qrcode-generator', component: QRCodeGeneratorComponent },
         { path: 'settings', component: SettingsComponent },
     ]
 }, { path: '**', redirectTo: '' }];

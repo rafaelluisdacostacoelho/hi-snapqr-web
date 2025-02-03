@@ -6,12 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { environment } from '../../../../environments/environment';
 
 @Component({
-  selector: 'app-qr-code-generator',
+  selector: 'app-qrcode-generator',
   imports: [CommonModule, FormsModule],
-  templateUrl: './qr-code-generator.component.html',
-  styleUrl: './qr-code-generator.component.scss'
+  templateUrl: './qrcode-generator.component.html',
+  styleUrl: './qrcode-generator.component.scss'
 })
-export class QrCodeGeneratorComponent {
+export class QRCodeGeneratorComponent {
   public keyPix: string = '';
   public loading: boolean = false;
   public imageBase64 = '';

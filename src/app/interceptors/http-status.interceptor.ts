@@ -39,7 +39,7 @@ export class HttpStatusInterceptor implements HttpInterceptor {
                     }
                 } else {
                     // Erros genéricos do servidor sem ProblemDetails
-                    errorMessage = error.error?.message || `Erro do servidor: ${error.status}`;
+                    errorMessage = error.error?.message || `Verifique sua conexão com a internet.`;
                 }
 
                 // 🔥 Chamamos o SnackbarService corretamente

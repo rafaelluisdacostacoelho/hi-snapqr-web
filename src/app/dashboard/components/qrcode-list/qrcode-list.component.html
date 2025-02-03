@@ -1,0 +1,58 @@
+<div class="widget-title">
+    <h3>Pesquisa de QR Codes</h3>
+</div>
+<div class="filters">
+    <label>
+        Tipo:
+        <select [(ngModel)]="filter.type" (change)="onFilterChange()">
+            <option value="">Todos</option>
+            <option value="Pix">Pix</option>
+            <option value="Bitcoin">Bitcoin</option>
+            <option value="BitcoinLightning">Bitcoin Lightning</option>
+            <option value="Url">URL</option>
+        </select>
+    </label>
+
+    <label>
+        Data Inicial:
+        <input type="date" [(ngModel)]="filter.startDate" (change)="onFilterChange()">
+    </label>
+
+    <label>
+        Data Final:
+        <input type="date" [(ngModel)]="filter.endDate" (change)="onFilterChange()">
+    </label>
+
+    <button (click)="fetchQRCodes()">Buscar</button>
+</div>
+
+<table class="qrcode-table">
+    <thead>
+        <tr>
+            <th>Tipo</th>
+            <th>Dados</th>
+            <th>Criado em</th>
+            <th>Metadados</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let qr of qrcodes()">
+            <td>{{ qr.type }}</td>
+            <td>{{ qr.qrData }}</td>
+            <td>{{ qr.createdAt | date:'short' }}</td>
+            <td>
+                <ul>
+                    <li *ngFor="let meta of qr.metadata">
+                        <strong>{{ meta.key }}</strong>: {{ meta.value }}
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="pagination">
+    <button (click)="goToPage(filter.page - 1)" [disabled]="filter.page <= 1">❮ Anterior</button>
+    <span>Página {{ filter.page }} de {{ totalPages }}</span>
+    <button (click)="goToPage(filter.page + 1)" [disabled]="filter.page >= totalPages">Próxima ❯</button>
+</div>

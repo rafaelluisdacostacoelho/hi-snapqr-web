@@ -6,6 +6,7 @@ import { routes } from './app.routes';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AuthGuard } from './guards/auth.guard';
 import { HttpStatusInterceptor } from './interceptors/http-status.interceptor';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -22,6 +23,6 @@ export const appConfig: ApplicationConfig = {
       useClass: HttpStatusInterceptor,
       multi: true
     },
-    AuthGuard
+    AuthGuard, provideAnimationsAsync()
   ]
 };

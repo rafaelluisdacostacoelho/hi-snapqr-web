@@ -1,37 +1,43 @@
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
+export interface QRCode {
+  id: number;
+  type: string;
+  qrData: string;
+  createdAt: string;
+  metadata: { key: string, value: string }[];
+}
+
+export interface QRCodeFilter {
+  type?: string;
+  startDate?: string;
+  endDate?: string;
+  sortBy?: string;
+  sortOrder?: 'asc' | 'desc';
+  page: number;
+  pageSize: number;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class QRCodeService {
+  constructor(private http: HttpClient) { }
 
-  private createdQRs: string[] = [];
-  private remainingPulse: number = 10; // Exemplo: 10 pulsos para gerar QR Codes
+  getQRCodes(filter: QRCodeFilter): Observable<QRCode[]> {
+    let params = new HttpParams()
+      .set('page', filter.page)
+      .set('pageSize', filter.pageSize);
 
-  constructor() {
-    // Inicializar QR Codes e pacotes de dados fictícios
-    this.createdQRs = [
-      'https://via.placeholder.com/150/0000FF/808080?text=QR+1',
-      'https://via.placeholder.com/150/FF0000/FFFFFF?text=QR+2',
-      'https://via.placeholder.com/150/00FF00/FFFFFF?text=QR+3'
-    ];
-  }
+    if (filter.type) params = params.set('type', filter.type);
+    if (filter.startDate) params = params.set('startDate', filter.startDate);
+    if (filter.endDate) params = params.set('endDate', filter.endDate);
+    if (filter.sortBy) params = params.set('sortBy', filter.sortBy);
+    if (filter.sortOrder) params = params.set('sortOrder', filter.sortOrder);
 
-  // Retorna os QR Codes criados
-  getCreatedQRs(): string[] {
-    return this.createdQRs;
-  }
-
-  // Retorna os pulsos restantes
-  getRemainingPulse(): number {
-    return this.remainingPulse;
-  }
-
-  // Filtra QR Codes por tipo (filtro simples)
-  getQRsByType(type: string): string[] {
-    if (!type) {
-      return this.createdQRs;
-    }
-    return this.createdQRs.filter((qr, index) => qr.includes(type)); // Simulação de filtro
+    return this.http.get<QRCode[]>(`${environment.url}/qrcodes`, { params });
   }
 }
