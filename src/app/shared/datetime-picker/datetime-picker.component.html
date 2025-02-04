@@ -1,0 +1,24 @@
+<div class="datetime-picker">
+    <label>{{ label }}</label>
+    <div class="inputs">
+        <input type="text" [value]="selectedDate + ' ' + selectedTime" readonly (click)="openModal()" />
+    </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" *ngIf="showModal">
+    <div class="modal">
+        <h3>Selecionar Data e Hora</h3>
+
+        <label>Data</label>
+        <input type="date" [value]="selectedDate" (change)="onDateChange($event)" />
+
+        <label>Hora</label>
+        <input type="time" [value]="selectedTime" (change)="onTimeChange($event)" />
+
+        <div class="modal-buttons">
+            <button class="cancel" (click)="closeModal()">Cancelar</button>
+            <button class="confirm" (click)="confirmSelection()">Confirmar</button>
+        </div>
+    </div>
+</div>

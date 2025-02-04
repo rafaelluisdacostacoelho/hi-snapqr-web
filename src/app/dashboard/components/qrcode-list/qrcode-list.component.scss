@@ -18,14 +18,75 @@
 .filters {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.filters label {
-    display: flex;
     flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    
+    .filters-group {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+    }
+
+    label {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 250px;
+        /* Define um tamanho máximo para os campos */
+        font-size: 14px;
+        color: #333;
+
+        select,
+        input {
+            margin: 0;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        select {
+            cursor: pointer;
+        }
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #0056b3;
+        }
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+        justify-content: center;
+        /* Centraliza os campos em telas menores */
+
+        label {
+            width: 100%;
+            /* Os campos vão ocupar 100% da largura disponível */
+            max-width: none;
+        }
+
+        button {
+            width: 100%;
+            /* O botão ocupa toda a largura disponível em telas menores */
+        }
+    }
 }
 
 .qrcode-table {

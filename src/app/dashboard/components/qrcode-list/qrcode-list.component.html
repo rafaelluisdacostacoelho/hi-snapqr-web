@@ -1,29 +1,34 @@
 <div class="widget-title">
     <h3>Pesquisa de QR Codes</h3>
 </div>
-<div class="filters">
-    <label>
-        Tipo:
-        <select [(ngModel)]="filter.type" (change)="onFilterChange()">
-            <option value="">Todos</option>
-            <option value="Pix">Pix</option>
-            <option value="Bitcoin">Bitcoin</option>
-            <option value="BitcoinLightning">Bitcoin Lightning</option>
-            <option value="Url">URL</option>
-        </select>
-    </label>
 
-    <label>
-        Data Inicial:
-        <input type="date" [(ngModel)]="filter.startDate" (change)="onFilterChange()">
-    </label>
-
-    <label>
-        Data Final:
-        <input type="date" [(ngModel)]="filter.endDate" (change)="onFilterChange()">
-    </label>
-
-    <button (click)="fetchQRCodes()">Buscar</button>
+<div [formGroup]="filterForm" class="filters">
+    <div class="filters-group">
+        <app-select 
+            formControlName="type"
+            label="Tipo de QR Code"
+            primaryColor="#FF5733"
+            [options]="qrCodeTypes"
+            defaultValue="Todos">
+        </app-select>
+        <app-datetime-picker 
+            formControlName="startDate"
+            label="Data Inicial" 
+            primaryColor="#FF5733" 
+            locale="pt-BR">
+        </app-datetime-picker>
+        <app-datetime-picker 
+            formControlName="endDate"
+            label="Data Final" 
+            primaryColor="#FF5733" 
+            locale="pt-BR">
+        </app-datetime-picker>
+    </div>
+    <div class="filters-group">
+        <button (click)="fetchQRCodes()">Buscar</button>
+        <button (click)="createNew()">Novo</button>
+        <button (click)="archiveQRCodes()">Arquivar</button>
+    </div>
 </div>
 
 <table class="qrcode-table">
@@ -39,7 +44,7 @@
         <tr *ngFor="let qr of qrcodes()">
             <td>{{ qr.type }}</td>
             <td>{{ qr.qrData }}</td>
-            <td>{{ qr.createdAt | date:'short' }}</td>
+            <td>{{ formatDate(qr.createdAt) }}</td>
             <td>
                 <ul>
                     <li *ngFor="let meta of qr.metadata">

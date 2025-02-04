@@ -1,0 +1,21 @@
+<div class="custom-select">
+    <label>{{ label }}</label>
+    <div class="select-box" (click)="openModal()">
+        <span>{{ selectedLabel }}</span>
+    </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" *ngIf="showModal">
+    <div class="modal">
+        <h3>{{ label }}</h3>
+
+        <ul class="options">
+            <li *ngFor="let option of options" (click)="selectOption(option.value)">
+                {{ option.label }}
+            </li>
+        </ul>
+
+        <button class="cancel" (click)="closeModal()">Cancelar</button>
+    </div>
+</div>
