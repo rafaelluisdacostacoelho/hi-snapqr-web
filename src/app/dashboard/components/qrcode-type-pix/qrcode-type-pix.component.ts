@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './qrcode-type-pix.component.html',
   styleUrl: './qrcode-type-pix.component.scss'
 })
-export class QRCodeAddPixComponent {
+export class QRCodeTypePixComponent {
   @Output() qrCodeGenerated = new EventEmitter<string>();
 
   pixForm: FormGroup;

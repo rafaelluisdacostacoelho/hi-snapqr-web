@@ -14,10 +14,10 @@ import { StepIndicatorComponent } from '../step-indicator/step-indicator.compone
   styleUrl: './wizard.component.scss'
 })
 export class WizardComponent {
-  steps = ['Tipo de QR Code', 'Formato', 'Cores', 'Revisão'];
+  steps = ['Tipo de QR Code', 'Formato', 'Quadro', 'Logo', 'Cores'];
   currentStep = 0;
-  invalidSteps = [false, false, false, false]; // Marca os steps inválidos
-  formData: any = {}; // Armazena os dados dos forms
+  invalidSteps = [false, false, false, false];
+  formData: any = {};
 
   constructor(private router: Router) { }
 
@@ -41,6 +41,7 @@ export class WizardComponent {
   }
 
   validateStep(step: number): boolean {
+    return true;
     const requiredFields: Record<number, string[]> = {
       0: ['qrType'],
       1: ['format'],
@@ -57,6 +58,6 @@ export class WizardComponent {
 
   navigateToStep() {
     const stepRoutes = ['qrcode-type', 'qrcode-format', 'qrcode-frame', 'qrcode-logo', 'qrcode-color'];
-    this.router.navigate(['/wizard', stepRoutes[this.currentStep]]);
+    this.router.navigate([`/dashboard/wizard/${stepRoutes[this.currentStep]}`]);
   }
 }

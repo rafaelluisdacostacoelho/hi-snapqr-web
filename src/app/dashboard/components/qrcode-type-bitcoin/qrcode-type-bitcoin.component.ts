@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './qrcode-type-bitcoin.component.html',
   styleUrl: './qrcode-type-bitcoin.component.scss'
 })
-export class QRCodeAddBitcoinComponent {
+export class QRCodeTypeBitcoinComponent {
 
 }

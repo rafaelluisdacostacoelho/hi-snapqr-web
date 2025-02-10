@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterOutlet } from '@angular/router';
@@ -6,15 +6,17 @@ import { Router, RouterOutlet } from '@angular/router';
 import { QRCodeTypeEnum } from 'src/app/models/enumerators/qrcode-type.enum';
 import { SelectComponent } from 'src/app/shared/select/select.component';
 import { QRCodeGenerator } from 'src/app/models/interfaces/qrcode-generator.interface';
+import { WizardComponent } from '../wizard/wizard.component';
 
 @Component({
   selector: 'app-qrcode-type',
+  standalone: true,
   imports: [CommonModule, ReactiveFormsModule, SelectComponent, RouterOutlet],
   templateUrl: './qrcode-type.component.html',
   styleUrl: './qrcode-type.component.scss'
 })
-export class QRCodeTypeComponent {
-  qrCodeForm: FormGroup;
+export class QRCodeTypeComponent implements OnInit {
+  qrCodeForm!: FormGroup;  // Corrigido: Definição do FormGroup
   public qrCodeId: string = '';
   public loading: boolean = false;
   public imageBase64 = '';
@@ -27,12 +29,20 @@ export class QRCodeTypeComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router
-  ) {
+    private router: Router,
+    private wizard: WizardComponent
+  ) {}
+
+  ngOnInit() {
     this.qrCodeForm = this.formBuilder.group({
       qrCodeType: [QRCodeTypeEnum.Pix, Validators.required],
       qrCodeData: ['', Validators.required]
     });
+
+    // Recupera valores já salvos no WizardComponent
+    if (this.wizard.formData.qrCodeType) {
+      this.qrCodeForm.patchValue({ qrCodeType: this.wizard.formData.qrCodeType });
+    }
   }
 
   onTypeChange(type: number) {
@@ -54,18 +64,7 @@ export class QRCodeTypeComponent {
     }
   }
 
-  step = 1; // Etapa atual
-  totalSteps = 4; // Número total de etapas
-
-  nextStep() {
-    if (this.step < this.totalSteps) {
-      this.step++;
-    }
-  }
-
-  prevStep() {
-    if (this.step > 1) {
-      this.step--;
-    }
+  saveData() {
+    this.wizard.saveFormData(0, { qrCodeType: this.qrCodeForm.value.qrCodeType });
   }
 }
