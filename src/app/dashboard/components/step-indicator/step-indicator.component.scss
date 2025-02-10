@@ -1,0 +1,47 @@
+.container {
+    width: 100%;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 3px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+}
+
+.active .circle {
+    border-color: purple;
+    background: purple;
+    color: white;
+}
+
+.invalid .circle {
+    border-color: red;
+    background: red;
+    color: white;
+}
+
+.progress {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    height: 5px;
+    background: purple;
+    transition: width 0.3s;
+}

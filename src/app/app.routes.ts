@@ -21,11 +21,17 @@ import { ErrorComponent } from './site/components/error/error.component';
 import { CheckoutSuccessComponent } from './site/components/checkout-success/checkout-success.component';
 import { CheckoutCancelComponent } from './site/components/checkout-cancel/checkout-cancel.component';
 import { ServicesComponent } from './site/components/services/services.component';
-import { QRCodeGeneratorComponent } from './dashboard/components/qrcode-generator/qrcode-generator.component';
 import { PasswordChangedComponent } from './site/components/password-changed/password-changed.component';
 import { ForgotPasswordSuccessComponent } from './site/components/forgot-password-success/forgot-password-success.component';
-import { QRCodeAddComponent } from './dashboard/components/qrcode-add/qrcode-add.component';
+import { QRCodeTypeComponent } from './dashboard/components/qrcode-type/qrcode-type.component';
 import { QRCodeListComponent } from './dashboard/components/qrcode-list/qrcode-list.component';
+import { QRCodeAddPixComponent } from './dashboard/components/qrcode-type-pix/qrcode-type-pix.component';
+import { QRCodeAddBitcoinComponent } from './dashboard/components/qrcode-type-bitcoin/qrcode-type-bitcoin.component';
+import { WizardComponent } from './dashboard/components/wizard/wizard.component';
+import { QRCodeFormatComponent } from './dashboard/components/qrcode-format/qrcode-format.component';
+import { QRCodeFrameComponent } from './dashboard/components/qrcode-frame/qrcode-frame.component';
+import { QRCodeLogoComponent } from './dashboard/components/qrcode-logo/qrcode-logo.component';
+import { QRCodeColorComponent } from './dashboard/components/qrcode-color/qrcode-color.component';
 
 export const routes: Routes = [{
     path: '',
@@ -56,11 +62,27 @@ export const routes: Routes = [{
     component: DashboardComponent,
     canActivate: [AuthGuard],
     children: [
-        { path: '', redirectTo: 'main', pathMatch: 'full' },
-        { path: 'main', component: MainComponent },
+        { path: '', redirectTo: 'wizard', pathMatch: 'full' },
+        {
+            path: 'wizard',
+            component: WizardComponent,
+            children: [
+                {
+                    path: 'qrcode-type',
+                    component: QRCodeTypeComponent,
+                    children: [
+                        { path: '', redirectTo: 'pix', pathMatch: 'full' },
+                        { path: 'pix', component: QRCodeAddPixComponent },
+                        { path: 'bitcoin', component: QRCodeAddBitcoinComponent }
+                    ]
+                },
+                { path: 'qrcode-format', component: QRCodeFormatComponent },
+                { path: 'qrcode-frame', component: QRCodeFrameComponent },
+                { path: 'qrcode-logo', component: QRCodeLogoComponent },
+                { path: 'qrcode-color', component: QRCodeColorComponent },
+            ]
+        },
         { path: 'qrcode-list', component: QRCodeListComponent },
-        { path: 'qrcode-add', component: QRCodeAddComponent },
-        { path: 'qrcode-generator', component: QRCodeGeneratorComponent },
         { path: 'settings', component: SettingsComponent },
     ]
 }, { path: '**', redirectTo: '' }];

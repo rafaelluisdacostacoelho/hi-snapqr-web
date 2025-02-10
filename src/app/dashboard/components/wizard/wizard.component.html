@@ -1,0 +1,10 @@
+<app-step-indicator [steps]="steps" [currentStep]="currentStep" [invalidSteps]="invalidSteps"></app-step-indicator>
+
+<router-outlet></router-outlet>
+
+<div class="buttons">
+    <button (click)="prev()" [disabled]="currentStep === 0">Voltar</button>
+    <button (click)="next()" [disabled]="currentStep === steps.length - 1">
+        {{ currentStep === steps.length - 1 ? 'Gerar QR Code' : 'Avançar' }}
+    </button>
+</div>

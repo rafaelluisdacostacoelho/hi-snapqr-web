@@ -4,57 +4,61 @@
 
 <div [formGroup]="filterForm" class="filters">
     <div class="filters-group">
-        <app-select 
-            formControlName="type"
-            label="Tipo de QR Code"
-            primaryColor="#FF5733"
-            [options]="qrCodeTypes"
-            defaultValue="Todos">
+        <app-select formControlName="type" label="Tipo de QR Code" primaryColor="#FF5733" [options]="qrCodeTypes"
+            [defaultValue]="qrCodeTypeDefault">
         </app-select>
-        <app-datetime-picker 
-            formControlName="startDate"
-            label="Data Inicial" 
-            primaryColor="#FF5733" 
-            locale="pt-BR">
+        <app-datetime-picker formControlName="startDate" label="Data Inicial" primaryColor="#FF5733" locale="pt-BR">
         </app-datetime-picker>
-        <app-datetime-picker 
-            formControlName="endDate"
-            label="Data Final" 
-            primaryColor="#FF5733" 
-            locale="pt-BR">
+        <app-datetime-picker formControlName="endDate" label="Data Final" primaryColor="#FF5733" locale="pt-BR">
         </app-datetime-picker>
     </div>
     <div class="filters-group">
-        <button (click)="fetchQRCodes()">Buscar</button>
-        <button (click)="createNew()">Novo</button>
-        <button (click)="archiveQRCodes()">Arquivar</button>
+        <button class="button-blue" (click)="fetchQRCodes()">🔍 Buscar</button>
+        <button class="button-green" routerLink="/dashboard/qrcode-type">➕ Novo</button>
+        <button class="button-orange" (click)="archiveQRCodes()">📦 Arquivar</button>
     </div>
 </div>
 
-<table class="qrcode-table">
-    <thead>
-        <tr>
-            <th>Tipo</th>
-            <th>Dados</th>
-            <th>Criado em</th>
-            <th>Metadados</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let qr of qrcodes()">
-            <td>{{ qr.type }}</td>
-            <td>{{ qr.qrData }}</td>
-            <td>{{ formatDate(qr.createdAt) }}</td>
-            <td>
-                <ul>
-                    <li *ngFor="let meta of qr.metadata">
-                        <strong>{{ meta.key }}</strong>: {{ meta.value }}
-                    </li>
-                </ul>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="table-container">
+    <table class="responsive-table">
+        <thead>
+            <tr>
+                <th>
+                    <input 
+                        type="checkbox" 
+                        [checked]="areAllSelected()" 
+                        (change)="toggleSelectAll($event)"
+                    />
+                </th>
+                <th>Tipo</th>
+                <th>Dados</th>
+                <th>Criado em</th>
+                <th>Metadados</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let qr of qrcodes()">
+                <td>
+                    <input 
+                        type="checkbox" 
+                        [checked]="isSelected(qr.qrCodeId)" 
+                        (change)="toggleSelection(qr.qrCodeId)" 
+                    />
+                </td>
+                <td>{{ qr.type }}</td>
+                <td>{{ qr.qrData }}</td>
+                <td>{{ formatDate(qr.createdAt) }}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let meta of qr.metadata">
+                            <strong>{{ meta.key }}</strong>: {{ meta.value }}
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 <div class="pagination">
     <button (click)="goToPage(filter.page - 1)" [disabled]="filter.page <= 1">❮ Anterior</button>

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, forwardRef } from '@angular/core';
+import { Component, EventEmitter, Input, Output, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -18,14 +18,15 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class SelectComponent implements ControlValueAccessor {
   @Input() label: string = 'Selecione uma opção';
   @Input() primaryColor: string = '#007BFF';
-  @Input() options: { value: string, label: string }[] = [];
-  @Input() defaultValue: string = ''; // Novo Input para valor padrão
+  @Input() options: { value: number, label: string }[] = [];
+  @Input() defaultValue: number = 0;
+  @Output() selectionChange = new EventEmitter<number>();
 
-  selectedValue: string = '';
-  selectedLabel: string = ''; // 🔹 Agora armazenamos o label
+  selectedValue: number = 0;
+  selectedLabel: string = '';
   showModal: boolean = false;
 
-  onChange: (value: string) => void = () => { };
+  onChange: (value: number) => void = () => { };
   onTouched: () => void = () => { };
 
   ngOnInit(): void {
@@ -42,23 +43,24 @@ export class SelectComponent implements ControlValueAccessor {
     this.showModal = false;
   }
 
-  selectOption(value: string): void {
+  selectOption(value: number): void {
     this.setSelectedValue(value);
     this.onChange(value);
+    this.selectionChange.emit(value);
     this.closeModal();
   }
 
-  setSelectedValue(value: string): void {
+  setSelectedValue(value: number): void {
     this.selectedValue = value;
     this.selectedLabel = this.getLabelForValue(value);
   }
 
-  getLabelForValue(value: string): string {
+  getLabelForValue(value: number): string {
     const option = this.options.find(opt => opt.value === value);
     return option ? option.label : 'Selecione...';
   }
 
-  writeValue(value: string): void {
+  writeValue(value: number): void {
     if (value) {
       this.setSelectedValue(value);
     } else if (this.defaultValue) {

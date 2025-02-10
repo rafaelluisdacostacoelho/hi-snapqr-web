@@ -11,9 +11,9 @@ import { SqrButtonComponent } from 'src/app/shared/button/button.component';
 })
 export class SidebarComponent {
   menuItems = [
-    { label: 'Pesquisa de QR Codes', link: '/dashboard/qrcode-list' },
-    { label: 'Criador de QR Code', link: '/dashboard/qrcode-add' },
-    { label: 'Analytics', link: '/dashboard/analytics' },
+    { label: 'Gerador de QR Code', link: '/dashboard/qrcode-type' },
+    { label: 'Lista de QR Codes', link: '/dashboard/qrcode-list' },
+    { label: 'Relatórios', link: '/dashboard/analytics' },
     { label: 'Configurações', link: '/dashboard/settings' },
   ];
   isMobile: boolean;

@@ -1,0 +1,56 @@
+$button-color: #800080; // Cor roxa
+$button-hover-color: #a060a0; // Cor roxa mais clara
+$disabled-color: #ccc;
+
+.wizard-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.wizard-content {
+    margin: 20px 0;
+
+    h3 {
+        font-size: 20px;
+        color: $button-color;
+        margin-bottom: 10px;
+    }
+
+    select,
+    input {
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+.wizard-buttons {
+    margin-top: 20px;
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background: $button-color;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 5px;
+
+        &:hover {
+            background: $button-hover-color;
+        }
+
+        &:disabled {
+            background: $disabled-color;
+            cursor: not-allowed;
+        }
+    }
+}

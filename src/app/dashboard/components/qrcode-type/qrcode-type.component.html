@@ -1,0 +1,7 @@
+<h3>Escolha o Tipo de QR Code</h3>
+<div class="form-group">
+  <app-select id="qrCodeType" formControlName="qrCodeType" label="Tipo de QR Code" primaryColor="#FF5733"
+    [options]="qrCodeTypes" [defaultValue]="qrCodeTypeDefault" (selectionChange)="onTypeChange($event)">
+  </app-select>
+  <router-outlet (activate)="onChildActivate($event)"></router-outlet>
+</div>
