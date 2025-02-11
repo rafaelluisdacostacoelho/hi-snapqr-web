@@ -1,10 +1,28 @@
-<div class="container">
+<div class="step-container">
     <div class="steps">
-        <div *ngFor="let step of steps; let i = index" class="step" [class.active]="currentStep >= i"
+        <div *ngFor="let step of steps; let i = index" 
+            class="step"
+            [class.active]="currentStep === i"
+            [class.completed]="currentStep > i"
             [class.invalid]="invalidSteps[i]">
-            <div class="circle">{{ i + 1 }}</div>
-            <span>{{ step }}</span>
+            
+            <!-- Ícone, Número ou Texto -->
+            <div class="circle">
+                <img *ngIf="currentStep > i" src="../../../../assets/icons/solids/check.svg" alt="Completo" class="step-icon">
+                <img *ngIf="currentStep <= i && step.icon" [src]="step.icon" alt="Ícone" class="step-icon">
+                <span *ngIf="currentStep === i && !step.icon">{{ i + 1 }}</span>
+
+                <!-- Partículas da explosão -->
+                <div *ngFor="let j of [1,2,3,4,5,6]" class="particle particle-{{ j }}"></div>
+            </div>
+
+            <span class="step-label">{{ step.label }}</span>
         </div>
-        <div class="progress" [style.width.%]="(currentStep / (steps.length - 1)) * 100"></div>
+
+        <!-- Barra de Progresso Animada -->
+        <div class="progress-bar">
+            <div class="progress" [style.width]="getProgressWidth()"></div>
+        </div>
     </div>
 </div>
+

@@ -8,7 +8,15 @@ import { Component, Input } from '@angular/core';
   styleUrl: './step-indicator.component.scss'
 })
 export class StepIndicatorComponent {
-  @Input() steps: string[] = [];
-  @Input() currentStep = 0;
+ @Input() steps: { label: string, icon: string }[] = [];
+  @Input() currentStep: number = 0;
   @Input() invalidSteps: boolean[] = [];
+
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  getProgressWidth(): string {
+    return `${(this.currentStep / (this.steps.length - 1)) * 100}%`;
+  }
 }

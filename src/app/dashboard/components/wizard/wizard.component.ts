@@ -14,7 +14,14 @@ import { StepIndicatorComponent } from '../step-indicator/step-indicator.compone
   styleUrl: './wizard.component.scss'
 })
 export class WizardComponent {
-  steps = ['Tipo de QR Code', 'Formato', 'Quadro', 'Logo', 'Cores'];
+  steps = [
+    { label: 'Tipo', icon: '../../../../assets/icons/solids/signs-post.svg' },
+    { label: 'Formato', icon: '../../../../assets/icons/solids/user.svg' },
+    { label: 'Quadro', icon: '../../../../assets/icons/solids/user.svg' },
+    { label: 'Logotipo', icon: '../../../../assets/icons/solids/image.svg' },
+    { label: 'Cores', icon: '../../../../assets/icons/solids/palette.svg' },
+    { label: 'Gerar', icon: '../../../../assets/icons/solids/circle-check.svg' },
+  ];
   currentStep = 0;
   invalidSteps = [false, false, false, false];
   formData: any = {};

@@ -12,30 +12,11 @@ $disabled-color: #ccc;
     text-align: center;
 }
 
-.wizard-content {
-    margin: 20px 0;
-
-    h3 {
-        font-size: 20px;
-        color: $button-color;
-        margin-bottom: 10px;
-    }
-
-    select,
-    input {
-        padding: 8px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        width: 100%;
-        max-width: 300px;
-    }
-}
-
 .wizard-buttons {
-    margin-top: 20px;
-
+    
     button {
         padding: 10px 20px;
+        width: 120px;
         border: none;
         border-radius: 5px;
         background: $button-color;

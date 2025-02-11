@@ -1,47 +1,139 @@
-.container {
+.step-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
 }
 
 .steps {
     display: flex;
-    justify-content: space-between;
     position: relative;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px 0;
 }
 
 .step {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    transition: all 0.3s ease-in-out;
 }
 
 .circle {
-    width: 30px;
-    height: 30px;
+    width: 25px; // Aumentado para melhorar o espaçamento interno
+    height: 25px;
     border-radius: 50%;
-    border: 3px solid gray;
     display: flex;
     align-items: center;
     justify-content: center;
     background: white;
+    border: 4px solid gray;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    padding: 8px; // Adicionado padding para afastar o ícone das bordas
+    z-index: 15;
+}
+
+:root {
+    --primary-color: #6a0dad; /* Definição da cor primária */
+}
+
+.step-icon {
+    width: 24px;
+    height: 24px;
+    transition: filter 0.3s ease-in-out;
+    opacity: 1; /* Garante que o ícone não esteja invisível */
+}
+
+/* Ícone na cor `var(--primary-color)` quando o step está desativado */
+.step:not(.active):not(.completed) .step-icon {
+    filter: brightness(0) saturate(100%) invert(24%) sepia(72%) saturate(746%) hue-rotate(250deg);
+}
+
+/* Ícone branco quando o step estiver ativo */
+.active .step-icon {
+    filter: invert(100%) brightness(100%);
+}
+
+/* Ícone na cor `var(--primary-color)` quando o step estiver finalizado */
+.completed .step-icon {
+    filter: brightness(0) saturate(100%) invert(24%) sepia(72%) saturate(746%) hue-rotate(250deg);
 }
 
 .active .circle {
-    border-color: purple;
-    background: purple;
+    border-color: var(--primary-color);
+    background: var(--primary-color);
     color: white;
+    animation: explode 0.5s ease-out;
+}
+
+.completed .circle {
+    border-color: var(--primary-color);
+    background: white;
 }
 
 .invalid .circle {
     border-color: red;
-    background: red;
-    color: white;
+}
+
+.step-label {
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Barra de progresso */
+.progress-bar {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #ccc;
+    transform: translateY(-50%);
+    z-index: -1; /* Garante que a barra de progresso fique atrás dos steps */
+    overflow: hidden;
+    z-index: 5;
 }
 
 .progress {
-    position: absolute;
-    top: 15px;
-    left: 0;
-    height: 5px;
-    background: purple;
-    transition: width 0.3s;
+    height: 100%;
+    background: var(--primary-color);
+    width: 0%;
+    /* Começa sem progresso */
+    transition: width 0.5s ease-in-out;
+}
+
+/* Título do step atual */
+.step-title h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* Animação de "explosão" ao ativar um step */
+@keyframes explode {
+    0% {
+        box-shadow: 0 0 0 0 rgba(128, 0, 128, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 10px 10px rgba(128, 0, 128, 0.1);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(128, 0, 128, 0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .steps {
+        flex-direction: column;
+    }
 }
