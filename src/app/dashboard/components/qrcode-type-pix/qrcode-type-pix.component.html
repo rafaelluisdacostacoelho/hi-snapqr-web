@@ -1,1 +1,44 @@
-<p>qrcode-type-pix works!</p>
+<form [formGroup]="pixForm">
+
+    <div class="form-group">
+        <label for="pixKey">Chave PIX <b class="form-error">*</b></label>
+        <input type="text" id="pixKey" formControlName="pixKey" placeholder="Digite a chave PIX">
+        <div *ngIf="pixForm.get('pixKey')?.touched && pixForm.get('pixKey')?.invalid" class="form-error">
+            <small *ngIf="pixForm.controls['pixKey'].hasError('required')">
+                A chave PIX é obrigatória.
+            </small>
+            <small *ngIf="pixForm.controls['pixKey'].hasError('minlength')">
+                A chave PIX deve ter pelo menos 5 caracteres.
+            </small>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="receiverName">Nome do Recebedor <b class="form-error">*</b></label>
+        <input type="text" id="receiverName" formControlName="receiverName" placeholder="Nome do recebedor">
+        <div *ngIf="pixForm.get('receiverName')?.touched && pixForm.get('receiverName')?.invalid" class="form-error">
+            <small *ngIf="pixForm.controls['receiverName'].hasError('required')">
+                O nome do recebedor é obrigatório.
+            </small>
+            <small *ngIf="pixForm.controls['receiverName'].hasError('minlength')">
+                O nome do recebedor deve ter pelo menos 5 caracteres.
+            </small>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="value">Valor (R$) <b class="form-error">*</b></label>
+        <input type="number" id="value" formControlName="value" placeholder="0.00">
+        <div *ngIf="pixForm.get('value')?.touched && pixForm.get('value')?.invalid" class="form-error">
+            <small *ngIf="pixForm.controls['value'].invalid && pixForm.controls['value'].touched">
+                Insira um valor válido (ex: 10,50).
+            </small>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="message">Mensagem (Opcional)</label>
+        <textarea id="message" formControlName="message" placeholder="Digite uma mensagem"></textarea>
+    </div>
+
+</form>

@@ -1,55 +1,36 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { QRCodeTypeEnum } from 'src/app/models/enumerators/qrcode-type.enum';
-import { environment } from 'src/environments/environment';
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-qrcode-type-pix',
-  imports: [],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './qrcode-type-pix.component.html',
   styleUrl: './qrcode-type-pix.component.scss'
 })
-export class QRCodeTypePixComponent {
-  @Output() qrCodeGenerated = new EventEmitter<string>();
+export class QRCodeTypePixComponent implements OnInit {
+  pixForm!: FormGroup;
 
-  pixForm: FormGroup;
+  @Output() formData = new EventEmitter<any>();
 
-  public qrCodeId: string = '';
-  public loading: boolean = false;
-  public imageBase64 = '';
+  constructor(private formBuilder: FormBuilder) { }
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private http: HttpClient
-  ) {
+  ngOnInit(): void {
     this.pixForm = this.formBuilder.group({
-      pixKey: [QRCodeTypeEnum.Pix, Validators.required],
-      amount: ['', Validators.required]
+      pixKey: ['', [Validators.required, Validators.minLength(5)]],
+      receiverName: ['', [Validators.required, Validators.minLength(3)]],
+      value: ['', [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
+      message: ['']
+    });
+
+    this.pixForm.valueChanges.subscribe(() => {
+      this.emitFormData();
     });
   }
 
-  onSubmit(): void {
-    if (this.pixForm.invalid) return;
-
-    const requestData = {
-      Type: Number(this.pixForm.value.qrCodeType),
-      Data: this.pixForm.value.qrCodeData,
-      Id: this.qrCodeId // Se estiver editando, mantém o mesmo ID
-    };
-
-    this.loading = true;
-    this.imageBase64 = '';
-
-    this.http
-      .post(`${environment.url}/qrcodes`, requestData)
-      .subscribe({
-        next: (response: any) => {
-          this.qrCodeId = response.id;
-          this.imageBase64 = response.qrCodeBase64;
-          this.qrCodeGenerated.emit(response.qrCodeBase64);
-          this.loading = false;
-        }
-      });
+  emitFormData() {
+    if (this.pixForm.valid) {
+      this.formData.emit(this.pixForm.value);
+    }
   }
 }

@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output, forwardRef } from '@angular/core';
+import { Component, EventEmitter, Input, Output, forwardRef, ElementRef, HostListener } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-select',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './select.component.html',
   styleUrl: './select.component.scss',
@@ -29,25 +30,23 @@ export class SelectComponent implements ControlValueAccessor {
   onChange: (value: number) => void = () => { };
   onTouched: () => void = () => { };
 
+  constructor(private elementRef: ElementRef) { }
+
   ngOnInit(): void {
     if (this.defaultValue) {
       this.setSelectedValue(this.defaultValue);
     }
   }
 
-  openModal(): void {
-    this.showModal = true;
-  }
-
-  closeModal(): void {
-    this.showModal = false;
+  toggleModal(): void {
+    this.showModal = !this.showModal;
   }
 
   selectOption(value: number): void {
     this.setSelectedValue(value);
     this.onChange(value);
     this.selectionChange.emit(value);
-    this.closeModal();
+    this.showModal = false;
   }
 
   setSelectedValue(value: number): void {
@@ -80,4 +79,11 @@ export class SelectComponent implements ControlValueAccessor {
   }
 
   setDisabledState?(isDisabled: boolean): void { }
+
+  @HostListener('document:click', ['$event'])
+  closeModal(event: Event): void {
+    if (this.showModal && !this.elementRef.nativeElement.contains(event.target)) {
+      this.showModal = false;
+    }
+  }
 }

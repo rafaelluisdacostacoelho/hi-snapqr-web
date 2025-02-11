@@ -1,0 +1,46 @@
+.form-group {
+    text-align: left;
+    width: 100%;
+}
+
+.form-error {
+    color: red;
+    font-size: 0.9rem;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 0;
+    text-align: left;
+}
+
+input,
+textarea {
+    margin-bottom: 0;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border-color: var(--primary-color);
+}
+
+textarea {
+    max-width: 100%;
+    resize: none;
+}
+
+input:active,
+textarea:active {
+    border-color: var(--primary-color);
+}

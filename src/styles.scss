@@ -5,12 +5,16 @@
 @use './assets/styles/animations';
 @use './assets/styles/typography';
 @use './assets/styles/cards';
+@use './assets/styles/forms';
 
-label {
-    color: var(--primary-color) !important;
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 h1 {
@@ -21,20 +25,6 @@ h1 {
     text-align: center;
     color: var(--primary-color);
     animation: slideIn 1s ease-out;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-color: var(--primary-color);
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-input:active {
-    border-color: var(--primary-color);
 }
 
 .form-wrapper {
@@ -50,54 +40,12 @@ input:active {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     animation: fadeIn 1s ease-in-out;
-
-    & form {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-
-        & div {
-            width: 100%;
-        }
-
-        & label {
-            margin-bottom: 0;
-        }
-
-        & input {
-            margin-bottom: 0;
-        }
-    }
-
-    & .form-error {
-        color: red;
-        font-size: 0.9rem;
-    }
 }
 
 .form-wrapper h2 {
     color: var(--primary-color);
     margin-bottom: 20px;
     text-align: center;
-}
-
-.form-wrapper label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #333;
-}
-
-.form-wrapper input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    border-color: var(--primary-color);
 }
 
 .form-wrapper button {
@@ -178,5 +126,3 @@ input:active {
         transform: translateX(0);
     }
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
