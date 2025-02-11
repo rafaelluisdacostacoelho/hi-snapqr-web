@@ -16,11 +16,11 @@ import { StepIndicatorComponent } from '../step-indicator/step-indicator.compone
 export class WizardComponent {
   steps = [
     { label: 'Tipo', icon: '../../../../assets/icons/solids/signs-post.svg' },
-    { label: 'Formato', icon: '../../../../assets/icons/solids/user.svg' },
-    { label: 'Quadro', icon: '../../../../assets/icons/solids/user.svg' },
-    { label: 'Logotipo', icon: '../../../../assets/icons/solids/image.svg' },
+    { label: 'Formato', icon: '../../../../assets/icons/solids/eye.svg' },
+    { label: 'Quadro', icon: '../../../../assets/icons/solids/vector-square.svg' },
+    { label: 'Logo', icon: '../../../../assets/icons/solids/image.svg' },
     { label: 'Cores', icon: '../../../../assets/icons/solids/palette.svg' },
-    { label: 'Gerar', icon: '../../../../assets/icons/solids/circle-check.svg' },
+    { label: 'QR', icon: '../../../../assets/icons/solids/qrcode.svg' },
   ];
   currentStep = 0;
   invalidSteps = [false, false, false, false];

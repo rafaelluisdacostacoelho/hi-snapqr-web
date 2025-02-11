@@ -30,17 +30,13 @@
     align-items: center;
     justify-content: center;
     background: white;
-    border: 4px solid gray;
+    border: 4px solid #ccc;
     font-weight: bold;
     font-size: 1.2rem;
     transition: all 0.3s ease-in-out;
     position: relative;
     padding: 8px; // Adicionado padding para afastar o ícone das bordas
     z-index: 15;
-}
-
-:root {
-    --primary-color: #6a0dad; /* Definição da cor primária */
 }
 
 .step-icon {
